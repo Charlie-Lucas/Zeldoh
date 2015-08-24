@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Zeldoh\ApiBundle\ZeldohApiBundle(),
             new Zeldoh\AppBundle\ZeldohAppBundle(),
+            new AppVentus\AsseticInjectorBundle\AvAsseticInjectorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
