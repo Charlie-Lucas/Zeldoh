@@ -3,9 +3,18 @@
   {
     "javascripts":
     {
+      "head":
+      [
+        "@ZeldohAppBundle/Resources/public/js/jquery-2.1.4.min.js",
+        "@ZeldohAppBundle/Resources/public/js/bootstrap.min.js"
+      ]
     },
     "stylesheets":
     {
+      "head":
+      [
+        "@ZeldohAppBundle/Resources/public/css/bootstrap.min.css"
+      ]
     }
   }
 }
