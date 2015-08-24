@@ -1,3 +1,9 @@
-app:
-    resource: "@AppBundle/Controller/"
+zeldoh_app:
+    resource: "@ZeldohAppBundle/Controller/"
     type:     annotation
+    prefix:   /
+
+zeldoh_api:
+    resource: "@ZeldohApiBundle/Controller/"
+    type:     annotation
+    prefix:   /api
