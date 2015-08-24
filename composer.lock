@@ -4,8 +4,55 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1fe553698f809d7939012f920054da3a",
+    "hash": "5cee7e2635b4f66dd1c1eb98bcfe810c",
     "packages": [
+        {
+            "name": "appventus/ajax-bundle",
+            "version": "dev-master",
+            "target-dir": "AppVentus/AjaxBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AppVentus/AvAjaxBundle.git",
+                "reference": "f9e6027d53edb61c1c9c5dd77601e812d09f3071"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AppVentus/AvAjaxBundle/zipball/f9e6027d53edb61c1c9c5dd77601e812d09f3071",
+                "reference": "f9e6027d53edb61c1c9c5dd77601e812d09f3071",
+                "shasum": ""
+            },
+            "require-dev": {
+                "symfony/class-loader": "2.1.*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "AppVentus\\AjaxBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Leny Bernard (AppVentus)",
+                    "email": "leny@appventus.com",
+                    "homepage": "http://appventus.com"
+                }
+            ],
+            "description": "Symfony AjaxBundle",
+            "homepage": "http://appventus.com/bundles/ajax",
+            "keywords": [
+                "ajax"
+            ],
+            "time": "2015-08-19 15:39:29"
+        },
         {
             "name": "appventus/assetic-injector-bundle",
             "version": "dev-master",
@@ -2215,7 +2262,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "appventus/assetic-injector-bundle": 20
+        "appventus/assetic-injector-bundle": 20,
+        "appventus/ajax-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

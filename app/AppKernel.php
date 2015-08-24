@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Zeldoh\ApiBundle\ZeldohApiBundle(),
             new Zeldoh\AppBundle\ZeldohAppBundle(),
             new AppVentus\AsseticInjectorBundle\AvAsseticInjectorBundle(),
+            new AppVentus\AjaxBundle\AvAjaxBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
