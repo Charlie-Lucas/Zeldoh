@@ -58,3 +58,17 @@ Si le joueur est au dessus de 25, le boss tape à 30x40 (PV enlevés).
 Ensuite, cela se passe comme un combat 'normal'.
 Si le joueur meurt, comme mort des combats.
 Si le boss meurt, le joueur gagne 30x40 XP et un item rare. Fin du jeu
+
+Les states des joueurs :
+
+- Chaque joueurs occasionnent une fourchette de dégât de 5 à 4 fois moins que ça force.
+- Les monstres occasionnent une fourchette de dégât de 7 à 6 fois moins que ça force.
+- Un joueurs à une chance sur dix de faire un coup critique.
+- L'armure réduit 10 % les dégâts.
+
+A chaque level :
+
+- La vie + 0.4
+- xP + 1.5
+- Force + 0.3
+- Armure + 10
