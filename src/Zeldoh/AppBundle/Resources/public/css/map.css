@@ -1,0 +1,19 @@
+ul.coordinates{
+    margin: 0px !important;
+}
+li.coordinate{
+    display: inline;
+    padding: 10px;
+}
+li{
+    list-style: none;
+}
+ul.coordinateLines {
+    display: inline;
+}
+li.area{
+    display: inline-block;
+}
+ul{
+    padding-left: 0px;
+}
