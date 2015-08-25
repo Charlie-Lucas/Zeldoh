@@ -9,5 +9,7 @@
 /composer.phar
 /vendor/
 /web/bundles/
+/web/js/
+/web/css/
 .idea
 *.DS_Store
