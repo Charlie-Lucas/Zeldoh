@@ -1,0 +1,16 @@
+Le combat - Technique : 
+
+Utilisation d'un objet :
+
+Lorsque le joueur souhaite utilisé un objet, celui ci contient 4 infos :
+-	Le type d'objet
+-	L'élément au quel il va effectuer des changements
+-	le changement à éffectuer
+-	Le nombre de tour
+
+Le fonction useItem() est utilisé lors de l'usage de l'objet.
+Cette fonction retourn un objet json. Cet objet peut contenir plusieurs effets diffrents.
+Une fois l'objet utilisé, celui ci est déplacé dans ItemUse. A chaque tout les objets en cours d'utilisation sont parcourut et ensuite décrémenter.
+Les objet possédant un tour à 1 sont détruit.
+Les objets possédant un tout à 0 ne sont pas défait aux states du joueurs ( exemple un potion de soins. ).
+	
