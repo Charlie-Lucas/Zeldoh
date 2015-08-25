@@ -5,23 +5,31 @@ ul.map {
 ul.coordinates{
     margin: 0px !important;
 }
+
 li.coordinate{
     display: inline-block;
-    padding: 10px;
+    padding: 5px;
     float: left;
     background-size: 100% !important;
     background-repeat: no-repeat;
 }
+
 li{
     list-style: none;
 }
+
 ul.coordinateLines {
     display: inline;
 }
+
 li.area{
-    display: inline-block;
-    float: left;
+    display: none;
 }
+
+li.showZone {
+	display: block !important;
+}
+
 ul{
     padding-left: 0px;
 }

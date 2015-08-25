@@ -112,7 +112,7 @@ class MapLoader
                 break;
             case "-":
                 $land = new Land();
-                $land->setBackground('bundles/zeldohapp/images/dark_grass.jpg');
+                $land->setBackground('bundles/zeldohapp/images/marsh.png');
                 return $land;
                 break;
 //                case "K":
