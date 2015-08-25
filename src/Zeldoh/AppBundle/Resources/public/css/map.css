@@ -27,7 +27,7 @@ li.area{
 }
 
 li.showZone {
-	display: block !important;
+	display: inline-block !important;
 }
 
 ul{
