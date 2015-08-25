@@ -1,0 +1,74 @@
+﻿Use cases :
+
+4 scénarios : 
+
+SCENARIO 1 : création de compte, loggin
+
+L'utilisateur arrive sur le site.
+Il doit s'inscrire ou se logger pour arriver sur les parties.
+Il doit s'inscrire pour pouvoir se logger ensuite.
+Pour l'inscription, il doit : cliquer sur "s'inscrire".
+Il doit remplir le formulaire (nom prénom mail, pseudo choisi, mot de passe au minimum).
+Une fois son inscription validée, il arrive sur l'interface des parties.
+
+S'il a déjà un compte, il clique sur "s'identifier'. Il doit remplir le champ pseudo et mot de passe.
+S'il ne se trompe pas, il arrive sur les parties. Si non, il retombe sur le formulaire. Il peut réinitialiser son mdp (email).
+
+
+SCENARIO 2 : création d'une partie : 
+
+L'utilsateur loggé veut créer une nouvelle partie. Il est donc sur l'interface de parties.
+Il clique sur "nouvelle partie". S'il n'en a pas déjà 2, il peut en créer. 
+S'il en existe déjà deux, il doit en supprimer une déjà existante, ou annuler.
+Pour créer une nouvelle partie après avoir cliqué sur le bouton nouvelle partie, il doit 
+choisir un personnage de son choix. Un fois le personnage choisi, il entre dans la map.
+
+SCENARIO 3 : jouer (sans les combat)
+Sur la map, le joueur arrive au "point de spawn", le début. A partir de là, il peut : 
+-avancer en utilisant les flèches du clavier (une pression = une case, pression prolongée, autant de case, jusqu'à arrêt d'appui),
+-mettre le jeu en pause (touche espace (ex), menu contextuel du joueur : -sauvegarder, -continuer, -quitter sans sauvegarder, -fermer),
+-sur une case d'objet, il peut fouiller (touche "q" (ex) pour voir si la case ne drop pas un item),
+-sur n'importe quelle case, il peut tomber sur un monstre. Un dé 12 se lance automatiquement à ce moment : 
+Si <6, le joueur est obligé de combattre, si >6, le joueur peut choisir de combattre ou d'esquiver.
+
+SCENARIO 4 : le combat : 
+Le combat se définit tour par tour. Le joueur commence. 
+Le joueur a accès au menu de combat en dessous de la map: 
+Il peut : sélectionner une attaque (souris ou clavier) à lancer contre le monstre,
+-sélectionner un item dans son menu item (souris ou clavier) pour régén sa vie ou booster ses stats pour 3 tours,
+-regarder les infos contextuelles du personnage (ne passe pas le tour),
+-ouvrir le menu contextuel (s'il sauvegarde, il ne reprendra pas au combat, mais à la case où il est arrêté).
+Lorsque le joueur lance une attaque, le monstre a 1 chance sur 8 d'esquiver l'attaque (tour perdu).
+
+C'est ensuite au tour du monstre, qui doit lancer une attaque. Selon le ratio d'agilité du joueur, ce dernier a quelques chances d'esquiver l'attaque.
+(si esquive, tour perdu).
+Le monstre est compris entre le niveau 1 et +2 au dessus du niveau du joueur (augmentation de la difficulté lors des montées en lvl du joueur).
+
+Le combat se déroule ainsi jusqu'à ce que le monstre ou le joueur n'ai plus de PV.
+Si monstre : le joueur gagne de l'XP (en fonction du monstre environ 1/3 de la vie du monstre).
+Si joueur : le joueur perd ses items et son XP gagnée (du niveau) et recommence au point de spawn. Si le joueur retrouve son "cadavre", il récupère
+la moitié de son XP perdue et ses items.
+
+SCENARIO 5 : combat contre le boss : 
+Le boss commence le combat. 
+Si le joueur est en dessous du niveau 25, il est one shot et meurt (le joueur perd ses items et son XP gagnée (du niveau) et recommence au point de spawn.
+ Si le joueur retrouve son "cadavre", il récupère la moitié de son XP perdue et ses items.)
+
+Si le joueur est au dessus de 25, le boss tape à 30x40 (PV enlevés).
+Ensuite, cela se passe comme un combat 'normal'.
+Si le joueur meurt, comme mort des combats.
+Si le boss meurt, le joueur gagne 30x40 XP et un item rare. Fin du jeu
+
+Les states des joueurs :
+
+- Chaque joueurs occasionnent une fourchette de dégât de 5 à 4 fois moins que ça force.
+- Les monstres occasionnent une fourchette de dégât de 7 à 6 fois moins que ça force.
+- Un joueurs à une chance sur dix de faire un coup critique.
+- L'armure réduit 10 % les dégâts.
+
+A chaque level :
+
+- La vie + 0.4
+- xP + 1.5
+- Force + 0.3
+- Armure + 10
