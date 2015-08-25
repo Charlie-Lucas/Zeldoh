@@ -30,14 +30,14 @@ class Area
 
     /**
      *
-     * @ORM\ManytoOne(targetEntity="Zeldoh\AppBundle\Entity\Map\Map", inversedBy="areas")
+     * @ORM\ManytoOne(targetEntity="Zeldoh\AppBundle\Entity\Map\AreaLine", inversedBy="areas")
      */
-    private $map;
+    private $areaLine;
 
     /**
-     * @ORM\OneToMany(targetEntity="Zeldoh\AppBundle\Entity\Map\Coordinate", mappedBy="area")
+     * @ORM\OneToMany(targetEntity="Zeldoh\AppBundle\Entity\Map\CoordinateLine", mappedBy="area")
      */
-    private $coordinates;
+    private $coordinateLines;
 
     /**
      * Get id
@@ -75,12 +75,12 @@ class Area
     /**
      * Set map
      *
-     * @param \Zeldoh\AppBundle\Entity\Map\Map $map
+     * @param \Zeldoh\AppBundle\Entity\Map\AreaLine $areaLine
      * @return Area
      */
-    public function setMap(\Zeldoh\AppBundle\Entity\Map\Map $map = null)
+    public function setAreaLine(\Zeldoh\AppBundle\Entity\Map\AreaLine $areaLine = null)
     {
-        $this->map = $map;
+        $this->areaLine = $areaLine;
 
         return $this;
     }
@@ -88,11 +88,11 @@ class Area
     /**
      * Get map
      *
-     * @return \Zeldoh\AppBundle\Entity\Map\Map 
+     * @return \Zeldoh\AppBundle\Entity\Map\AreaLine
      */
-    public function getMap()
+    public function getAreaLine()
     {
-        return $this->map;
+        return $this->areaLine;
     }
     /**
      * Constructor
@@ -108,9 +108,10 @@ class Area
      * @param \Zeldoh\AppBundle\Entity\Map\Coordinate $coordinates
      * @return Area
      */
-    public function addCoordinate(\Zeldoh\AppBundle\Entity\Map\Coordinate $coordinates)
+    public function addCoordinate(\Zeldoh\AppBundle\Entity\Map\Coordinate $coordinate)
     {
-        $this->coordinates[] = $coordinates;
+        $this->coordinates[] = $coordinate;
+        $coordinate->setArea($this);
 
         return $this;
     }
@@ -133,5 +134,39 @@ class Area
     public function getCoordinates()
     {
         return $this->coordinates;
+    }
+
+    /**
+     * Add coordinateLines
+     *
+     * @param \Zeldoh\AppBundle\Entity\Map\CoordinateLine $coordinateLines
+     * @return Area
+     */
+    public function addCoordinateLine(\Zeldoh\AppBundle\Entity\Map\CoordinateLine $coordinateLines)
+    {
+        $this->coordinateLines[] = $coordinateLines;
+        $coordinateLines->setArea($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove coordinateLines
+     *
+     * @param \Zeldoh\AppBundle\Entity\Map\CoordinateLine $coordinateLines
+     */
+    public function removeCoordinateLine(\Zeldoh\AppBundle\Entity\Map\CoordinateLine $coordinateLines)
+    {
+        $this->coordinateLines->removeElement($coordinateLines);
+    }
+
+    /**
+     * Get coordinateLines
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCoordinateLines()
+    {
+        return $this->coordinateLines;
     }
 }

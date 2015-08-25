@@ -23,19 +23,19 @@ class Map
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Zeldoh\AppBundle\Entity\Map\Area", mappedBy="map")
+     * @ORM\OneToMany(targetEntity="Zeldoh\AppBundle\Entity\Map\AreaLine", mappedBy="map")
      */
-    private $areas;
+    private $areaLines;
 
     public function __construct()
     {
-        $this->areas= new ArrayCollection();
+        $this->areaLines= new ArrayCollection();
     }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -45,33 +45,34 @@ class Map
     /**
      * Add areas
      *
-     * @param \Zeldoh\AppBundle\Entity\Map\Area $areas
+     * @param \Zeldoh\AppBundle\Entity\Map\AreaLine $areaLines
      * @return Map
      */
-    public function addArea(\Zeldoh\AppBundle\Entity\Map\Area $areas)
+    public function addAreaLine(\Zeldoh\AppBundle\Entity\Map\AreaLine $areaLine)
     {
-        $this->areas[] = $areas;
+        $this->areaLines[] = $areaLine;
+        $areaLine->setMap($this);
 
-        return $this;
+        return $areaLine;
     }
 
     /**
      * Remove areas
      *
-     * @param \Zeldoh\AppBundle\Entity\Map\Area $areas
+     * @param \Zeldoh\AppBundle\Entity\Map\AreaLine $areaLines
      */
-    public function removeArea(\Zeldoh\AppBundle\Entity\Map\Area $areas)
+    public function removeAreaLine(\Zeldoh\AppBundle\Entity\Map\AreaLine $areaLine)
     {
-        $this->areas->removeElement($areas);
+        $this->areaLines->removeElement($areaLine);
     }
 
     /**
      * Get areas
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getAreas()
+    public function getAreaLines()
     {
-        return $this->areas;
+        return $this->areaLines;
     }
 }

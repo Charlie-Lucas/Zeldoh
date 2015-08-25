@@ -30,6 +30,8 @@ abstract class Ground
      */
     private $reachable;
 
+    private $background;
+
 
     /**
      * Get id
@@ -62,6 +64,29 @@ abstract class Ground
     public function getReachable()
     {
         return $this->reachable;
+    }
+
+    /**
+     * Set reachable
+     *
+     * @param boolean $reachable
+     * @return Ground:Field
+     */
+    public function setBackground($background)
+    {
+        $this->background = $background;
+
+        return $this;
+    }
+
+    /**
+     * Get reachable
+     *
+     * @return boolean
+     */
+    public function getBackground()
+    {
+        return $this->background;
     }
 
 }

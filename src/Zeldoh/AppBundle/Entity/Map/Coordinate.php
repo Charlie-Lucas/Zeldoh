@@ -22,23 +22,14 @@ class Coordinate
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Zeldoh\AppBundle\Entity\Map\Area", inversedBy="coordinates")
+     * @ORM\ManyToOne(targetEntity="Zeldoh\AppBundle\Entity\Map\CoordinateLine", inversedBy="coordinates")
      */
-    private $area;
+    private $coordinateLine;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="x", type="integer")
+     * @ORM\OneToOne(targetEntity="Zeldoh\AppBundle\Entity\Ground\Ground")
      */
-    private $x;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="y", type="integer")
-     */
-    private $y;
+    private $ground;
 
 
     /**
@@ -50,53 +41,6 @@ class Coordinate
     {
         return $this->id;
     }
-
-    /**
-     * Set x
-     *
-     * @param integer $x
-     * @return Map:Coordinate
-     */
-    public function setX($x)
-    {
-        $this->x = $x;
-
-        return $this;
-    }
-
-    /**
-     * Get x
-     *
-     * @return integer
-     */
-    public function getX()
-    {
-        return $this->x;
-    }
-
-    /**
-     * Set y
-     *
-     * @param integer $y
-     * @return Map:Coordinate
-     */
-    public function setY($y)
-    {
-        $this->y = $y;
-
-        return $this;
-    }
-
-    /**
-     * Get y
-     *
-     * @return integer
-     */
-    public function getY()
-    {
-        return $this->y;
-    }
-
 
     /**
      * Set area
@@ -119,5 +63,51 @@ class Coordinate
     public function getArea()
     {
         return $this->area;
+    }
+
+    /**
+     * Set coordinateLine
+     *
+     * @param \Zeldoh\AppBundle\Entity\Map\CoordinateLine $coordinateLine
+     * @return Coordinate
+     */
+    public function setCoordinateLine(\Zeldoh\AppBundle\Entity\Map\CoordinateLine $coordinateLine = null)
+    {
+        $this->coordinateLine = $coordinateLine;
+
+        return $this;
+    }
+
+    /**
+     * Get coordinateLine
+     *
+     * @return \Zeldoh\AppBundle\Entity\Map\CoordinateLine 
+     */
+    public function getCoordinateLine()
+    {
+        return $this->coordinateLine;
+    }
+
+    /**
+     * Set ground
+     *
+     * @param \Zeldoh\AppBundle\Entity\Ground\Ground $ground
+     * @return Coordinate
+     */
+    public function setGround(\Zeldoh\AppBundle\Entity\Ground\Ground $ground = null)
+    {
+        $this->ground = $ground;
+
+        return $this;
+    }
+
+    /**
+     * Get ground
+     *
+     * @return \Zeldoh\AppBundle\Entity\Ground\Ground 
+     */
+    public function getGround()
+    {
+        return $this->ground;
     }
 }
