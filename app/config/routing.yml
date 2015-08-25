@@ -7,3 +7,6 @@ zeldoh_api:
     resource: "@ZeldohApiBundle/Controller/"
     type:     annotation
     prefix:   /api
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

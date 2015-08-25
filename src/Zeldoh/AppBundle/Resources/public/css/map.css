@@ -1,9 +1,16 @@
+ul.map {
+	margin: 0px;
+}
+
 ul.coordinates{
     margin: 0px !important;
 }
 li.coordinate{
-    display: inline;
+    display: inline-block;
     padding: 10px;
+    float: left;
+    background-size: 100% !important;
+    background-repeat: no-repeat;
 }
 li{
     list-style: none;
@@ -13,6 +20,7 @@ ul.coordinateLines {
 }
 li.area{
     display: inline-block;
+    float: left;
 }
 ul{
     padding-left: 0px;

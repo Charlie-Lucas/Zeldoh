@@ -107,12 +107,12 @@ class MapLoader
         switch ($character) {
             case "#":
                 $wall = new Wall();
-                $wall->setBackground('black');
+                $wall->setBackground('bundles/zeldohapp/images/wall.png');
                 return $wall;
                 break;
             case "-":
                 $land = new Land();
-                $land->setBackground('grey');
+                $land->setBackground('bundles/zeldohapp/images/dark_grass.jpg');
                 return $land;
                 break;
 //                case "K":

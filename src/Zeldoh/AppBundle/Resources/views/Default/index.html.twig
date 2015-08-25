@@ -11,7 +11,7 @@
                                     <li class="coordinateLine">
                                         <ul class="coordinates">
                                             {% for coordinate in coordinateLine.coordinates %}
-                                                <li class="coordinate" style="background-color: {{ coordinate.ground.background }}"></li>
+                                                <li class="coordinate" style="background: url('{{ asset(coordinate.ground.background) }}')"></li>
                                             {% endfor %}
                                         </ul>
                                     </li>
