@@ -9,8 +9,8 @@ Lorsque le joueur souhaite utilisé un objet, celui ci contient 4 infos :
 -	Le nombre de tour
 
 Le fonction useItem() est utilisé lors de l'usage de l'objet.
-Cette fonction retourn un objet json. Cet objet peut contenir plusieurs effets diffrents.
-Une fois l'objet utilisé, celui ci est déplacé dans ItemUse. A chaque tout les objets en cours d'utilisation sont parcourut et ensuite décrémenter.
+Cette fonction retourne un objet json. Cet objet peut contenir plusieurs effets diffrents.
+Une fois l'objet utilisé, celui ci est déplacé dans ItemUse. A chaque tour tout les objets en cours d'utilisation sont parcourut et ensuite décrémenter.
 Les objet possédant un tour à 1 sont détruit.
-Les objets possédant un tout à 0 ne sont pas défait aux states du joueurs ( exemple un potion de soins. ).
+Les objets possédant un tour à 0 ne sont pas défait aux states du joueurs ( exemple un potion de soins. ).
 	
