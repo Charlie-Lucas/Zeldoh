@@ -81,3 +81,16 @@ li.showZone {
 ul{
     padding-left: 0px;
 }
+
+.player{
+    background: url('../../../../../bundles/zeldohapp/images/link.png') !important;
+}
+.land{
+	background: url('../../../../../bundles/zeldohapp/images/marsh.png');
+}
+.wall{
+	background: url('../../../../../bundles/zeldohapp/images/wall.png');
+}
+.door{
+    background: url('../../../../../bundles/zeldohapp/images/marsh.png');
+}
