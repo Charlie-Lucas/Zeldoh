@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "97a8a643b7836c220f855119895d5b2b",
+    "hash": "3975c5a619f0673c22c7a7a98609fb2a",
     "packages": [
         {
             "name": "appventus/ajax-bundle",
@@ -1529,20 +1529,23 @@
         },
         {
             "name": "phpoption/phpoption",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/php-option.git",
-                "reference": "5d099bcf0393908bf4ad69cc47dafb785d51f7f5"
+                "reference": "94e644f7d2051a5f0fcf77d81605f152eecff0ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/5d099bcf0393908bf4ad69cc47dafb785d51f7f5",
-                "reference": "5d099bcf0393908bf4ad69cc47dafb785d51f7f5",
+                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/94e644f7d2051a5f0fcf77d81605f152eecff0ed",
+                "reference": "94e644f7d2051a5f0fcf77d81605f152eecff0ed",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.7.*"
             },
             "type": "library",
             "extra": {
@@ -1561,10 +1564,8 @@
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
+                    "name": "Johannes M. Schmitt",
+                    "email": "schmittjoh@gmail.com"
                 }
             ],
             "description": "Option Type for PHP",
@@ -1574,7 +1575,7 @@
                 "php",
                 "type"
             ],
-            "time": "2014-01-09 22:37:17"
+            "time": "2015-07-25 16:39:46"
         },
         {
             "name": "psr/log",
@@ -2131,25 +2132,29 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.20.0",
+            "version": "v1.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "1ea4e5f81c6d005fe84d0b38e1c4f1955eb86844"
+                "reference": "913d282caca9ee0e8d05940c6caa486d58810dd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1ea4e5f81c6d005fe84d0b38e1c4f1955eb86844",
-                "reference": "1ea4e5f81c6d005fe84d0b38e1c4f1955eb86844",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/913d282caca9ee0e8d05940c6caa486d58810dd4",
+                "reference": "913d282caca9ee0e8d05940c6caa486d58810dd4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.7"
             },
+            "require-dev": {
+                "symfony/debug": "~2.7",
+                "symfony/phpunit-bridge": "~2.7"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.20-dev"
+                    "dev-master": "1.21-dev"
                 }
             },
             "autoload": {
@@ -2184,7 +2189,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-08-12 15:56:39"
+            "time": "2015-08-24 09:51:18"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
