@@ -2,6 +2,7 @@
 
 namespace Zeldoh\AppBundle\Entity\Map;
 
+use JMS\Serializer\Annotation\Type;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -23,6 +24,7 @@ class Map
     private $id;
 
     /**
+     * @Type("ArrayCollection<Zeldoh\AppBundle\Entity\Map\AreaLine>")
      * @ORM\OneToMany(targetEntity="Zeldoh\AppBundle\Entity\Map\AreaLine", mappedBy="map")
      */
     private $areaLines;

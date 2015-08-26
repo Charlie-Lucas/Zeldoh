@@ -3,6 +3,7 @@
 namespace Zeldoh\AppBundle\Entity\Map;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Coordinate

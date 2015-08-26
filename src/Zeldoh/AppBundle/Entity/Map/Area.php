@@ -2,7 +2,9 @@
 
 namespace Zeldoh\AppBundle\Entity\Map;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Area
@@ -35,9 +37,15 @@ class Area
     private $areaLine;
 
     /**
+     * @Type("ArrayCollection<Zeldoh\AppBundle\Entity\Map\CoordinateLine>")
      * @ORM\OneToMany(targetEntity="Zeldoh\AppBundle\Entity\Map\CoordinateLine", mappedBy="area")
      */
     private $coordinateLines;
+
+    public function __construct()
+    {
+        $this->coordinateLines= new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -93,47 +101,6 @@ class Area
     public function getAreaLine()
     {
         return $this->areaLine;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->coordinates = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add coordinates
-     *
-     * @param \Zeldoh\AppBundle\Entity\Map\Coordinate $coordinates
-     * @return Area
-     */
-    public function addCoordinate(\Zeldoh\AppBundle\Entity\Map\Coordinate $coordinate)
-    {
-        $this->coordinates[] = $coordinate;
-        $coordinate->setArea($this);
-
-        return $this;
-    }
-
-    /**
-     * Remove coordinates
-     *
-     * @param \Zeldoh\AppBundle\Entity\Map\Coordinate $coordinates
-     */
-    public function removeCoordinate(\Zeldoh\AppBundle\Entity\Map\Coordinate $coordinates)
-    {
-        $this->coordinates->removeElement($coordinates);
-    }
-
-    /**
-     * Get coordinates
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCoordinates()
-    {
-        return $this->coordinates;
     }
 
     /**

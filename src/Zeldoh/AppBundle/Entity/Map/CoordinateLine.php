@@ -3,6 +3,7 @@
 namespace Zeldoh\AppBundle\Entity\Map;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * CoordinateLine
@@ -27,6 +28,7 @@ class CoordinateLine
     private $area;
 
     /**
+     * @Type("ArrayCollection<Zeldoh\AppBundle\Entity\Map\Coordinate>")
      * @ORM\OneToMany(targetEntity="Zeldoh\AppBundle\Entity\Map\Coordinate", mappedBy="coordinateLine")
      */
     private $coordinates;
