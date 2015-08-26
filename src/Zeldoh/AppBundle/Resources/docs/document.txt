@@ -1,0 +1,54 @@
+﻿Documents : 
+1: fonctionnalités attendues
+2: conception
+3: diagrammes
+4: développement
+5: conclusion
+
+1: fonctionnalités attendues : 
+
+-s'inscrire ok, dashboard user
+-créer une partie (choisir un héros, le genre et mode (multi ou solo)) --
+	créer une partie : obj game, start(), form de chara, 
+-arriver sur une map ok
+
+-se déplacer sur une map ok (détection des collisions, rafraichissement map, spawn monstres,)
+1 zone dévoilée à l'arrivée dessus
+
+-combattre des monstres
+-monter en niveau
+-gagner des items
+-trouver des items
+-utiliser des items
+-mettre en pause //
+-sauvegarder la progression
+-trouver une clé
+-combattre un boss
+-gagner de l'XP
+-quitter la partie //
+-retrouver la partie plus tard
+
+Nous sommes sortis du cadre sur certains points : 
+Pour la map, nous n'avons pas fait un carré de 9 carrés avec le personnage au milieu;
+Nous n'avons pas fait un système de jeu au clic.
+
+Nous sommes partis sur une map de 128x128, affichée en zones de 16x16. Le personnage se déplace
+librement sur la zone de 16x16. Les monstres arrivent aléatoirement sur cette map.
+
+Le genre du héros est choisi lors de la création de ce dernier, avant d'arriver sur la map.
+
+
+conception : 
+php en serveur (symfony/doctrine bdd, enregistrer les données, passer les données de bdd)
+js pour le front (se déplacer sur la map, gestion des combats, json pour communiquer avec 
+php)
+méthode agile, chacun son sprint et sa tâche
+user doc et architecture
+Base de données : dictionnaire des données, mld mcd
+
+
+diagrame de séquence, de classe, scénarios d'utilisation
+
+développement
+symfony, FOSUserBundle, code de parsing de map, code de déplacement, code js pour le combat,
+intégration des éléments graphiques, jquery, orm doctrine.

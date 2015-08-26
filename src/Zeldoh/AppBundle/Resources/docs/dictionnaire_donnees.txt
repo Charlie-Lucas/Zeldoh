@@ -1,0 +1,68 @@
+﻿Dictionnaire des données : 
+
+ENTITES : 
+
+Monstres : 
+id_monstre : identifiant unique du monstre
+nom_monstre : nom du monstre
+force_base : force de base (niveau 1)
+exp_base : expérience qu'il donne de base (niveau 1)
+level_base : niveau de base (niveau 1)
+
+La montée en niveau est gérée côté client, en fonction de son niveau atteint.
+(le boss fait partie des monstres, niveau de base: 30)
+
+
+Items : 
+id_item : identifiant unique de l'item
+nom_item : nom de l'item
+action_item : description de l'action de l'item
+
+Le 'sac' d'item sera géré côté client, avec une restriction de 20 items en tout.
+
+
+
+Charactere : 
+id_character : identifiant unique du charactere
+nom_character : nom du character
+force_base : force (niveau1)
+exp_base : expérience à gagner avant de passer au niveau suivant (niveau1)
+level_base : niveau de base (1)
+agilite_base : agilité basique (niveau 1) 
+intelligence_base
+armure_base
+
+Utilisateur : 
+id_user : identifiant unique de l'utilisateur
+mail_user : mail de l'utilisateur
+pwd : password de l'utilisateur (en crypté)
+pseudo_user : pseudonyme de l'utilisateur
+nb_partie : nombre de parties en cours (2 max)
+
+
+Map : 
+id_map : identifiant unique de la map
+
+C'est pour enregistrer la grande map 
+
+Zone : 
+id_map : identifiant de la map à laquelle la zone est liée
+id_zone : identifiant unique de la zone
+coordonnees : coordonnées de la zone
+
+Une zone ne peut être liée qu'à une seule map, mais une map
+contient plusieurs zones
+
+Sauvegarde : 
+id_save : identifiant unique de la sauvegarde
+date (datetime) : date de la sauvegarde
+id_user : identifiant de l'utilisateur
+id_character : identifiant du charactere utilisé
+level : niveau atteint par l'utilisateur
+id_zone : identifiant de la zone où il est arrivé
+exp : expérience qu'il a gagné
+force : force qu'il a gagné
+agilite : agilité qu'il a gagné
+intelligence : intelligence qu'il a gagné
+armure
+quantite_item
