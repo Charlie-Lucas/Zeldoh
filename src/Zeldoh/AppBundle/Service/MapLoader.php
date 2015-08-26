@@ -3,6 +3,7 @@
 namespace Zeldoh\AppBundle\Service;
 
 
+use Zeldoh\AppBundle\Entity\Ground\Spawn;
 use Zeldoh\AppBundle\Entity\Ground\Wall;
 use Zeldoh\AppBundle\Entity\Ground\Land;
 use Zeldoh\AppBundle\Entity\Map\Area;
@@ -115,9 +116,11 @@ class MapLoader
                 $land->setBackground('bundles/zeldohapp/images/marsh.png');
                 return $land;
                 break;
-//                case "K":
-//                    echo "i est un gateau";
-//                    break;
+            case "X":
+                $spawn = new Spawn();
+                $spawn->setBackground('bundles/zeldohapp/images/marsh.png');
+                return $spawn;
+                break;
 //                case "Y":
 //                    echo "i est un gateau";
 //                    break;
