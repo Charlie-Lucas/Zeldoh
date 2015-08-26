@@ -77,4 +77,15 @@ class Map
     {
         return $this->areaLines;
     }
+    
+    public function getCoordinates(){
+        $coordinates = array();
+        
+        foreach ($this->areaLines as $areas){
+            foreach ($areas->getAreaLines() as $coordarea){
+                $coordinates[] = $coordarea;
+            }
+        }
+        return $coordinates;
+    }
 }
