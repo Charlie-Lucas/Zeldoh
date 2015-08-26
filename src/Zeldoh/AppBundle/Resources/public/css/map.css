@@ -20,7 +20,7 @@ html, body {
 	width: 250px;
 }
 
-#formConnection {
+#formConnection, #formRegister {
 	width: 250px;
 	margin: auto;
 	margin-top: 110px;
@@ -29,11 +29,12 @@ html, body {
     border-radius: 5px;
 }
 
+#formConnection .form-group label,
 #formConnection .form-group label {
 	display: none;
 }
 
-#formConnection input[type="submit"] {
+#formRegister input[type="submit"] {
 	width: 100%;
 }
 

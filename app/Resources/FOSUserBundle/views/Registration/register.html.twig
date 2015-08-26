@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<div class="background">
+    <div class="container">
+        {% block header %}{% endblock %}
+            <div class="logoContainer">
+                <img class="logo" src=" {{ asset('bundles/zeldohapp/images/logo.png') }}" alt="Zeldoh">
+            </div>
+			{% include "FOSUserBundle:Registration:register_content.html.twig" %}
+	</div>
+</div>
+{% endblock %}
