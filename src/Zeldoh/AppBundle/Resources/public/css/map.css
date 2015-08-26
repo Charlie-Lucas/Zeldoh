@@ -1,7 +1,19 @@
+html, body {
+	height: 100%;
+}
+
+.background {
+	background: url('../../../../../bundles/zeldohapp/images/background.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+}
+
 .logoContainer {
 	text-align: center;
-	margin-top: 10px;
-	margin-bottom: 15px;
+	margin-top: 35px;
+	margin-bottom: 10px;
 }
 
 .logo {
@@ -12,6 +24,9 @@
 	width: 250px;
 	margin: auto;
 	margin-top: 110px;
+	background: #FFFFFF;
+    padding: 15px;
+    border-radius: 5px;
 }
 
 #formConnection .form-group label {
