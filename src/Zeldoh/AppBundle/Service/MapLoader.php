@@ -52,13 +52,12 @@ class MapLoader
                         $x = $i*16 +$ii;
                         $y = $j*16 +$jj;
                         $coordinate = new Coordinate();
-                        if(array_key_exists($i*16 +$ii, $parsedLines) && array_key_exists(($j*16 + $jj), str_split($parsedLines[$i*16 +$ii])))
+                        if(array_key_exists($i*16 +$ii, $parsedLines) && array_key_exists(($y), str_split($parsedLines[$x])))
                         {
-                            $coordinate->setGround($this->findGround(str_split($parsedLines[$i*16 +$ii])[$j*16 +$jj]));
+                            $coordinate->setGround($this->findGround(str_split($parsedLines[$x])[$y]));
                         }else{
                             $coordinate->setGround($this->findGround("#"));
                         }
-
                         $coordinateLine->addCoordinate($coordinate);
                     }
                     $area->addCoordinateLine($coordinateLine);
@@ -68,39 +67,6 @@ class MapLoader
             }
             $map->addAreaLine($areaLine);
         }
-
-
-
-
-//        var $map = new Map();
-//        var_dump($map);
-        $parsedString = array();
-
-//        for($i = 0; $i < sizeof($data); $i++)
-//        {
-
-//            if($j == O)
-//            {
-//                $area = new Area();
-//            }
-//            if($data[$i] == "\n"){
-//                $j = 0;
-//            }else{
-//                $coordinate = new Coordinate();
-//                switch ($data[i]) {
-//                    case '#':
-//                        echo "i égal 0";
-//                        break;
-//                    default:
-//                        break;
-//                }
-//                if($j = 15)
-//                {
-//                    $j = 0;
-//                }
-//            }
-//        }
-        dump($map);
         return $map;
     }
     public function findGround($character = "#")
@@ -139,6 +105,5 @@ class MapLoader
                 return $wall;
                 break;
         }
-        return $map;
     }
 }
