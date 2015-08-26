@@ -24,5 +24,7 @@ function showZone(coord) {
 		idxLine--;
 	}
 
+	$('ul.areas li.area').removeClass('showZone');
+
 	$('li.areaLine:nth-child('+idxLine+')').find('ul.areas li.area:nth-child('+idxCol+')').addClass('showZone');
 }
