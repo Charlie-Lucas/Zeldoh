@@ -1,6 +1,8 @@
 {% extends "::base.html.twig" %}
 {% block body %}
     <ul class="map">
+        {% set maxX = 0 %}
+        {% set maxY = 0 %}
         {% for areaLine in map.areaLines %}
             {% set areaRow = loop.index0 %}
             <li class="areaLine">
@@ -21,6 +23,8 @@
                                                     'coordinateRow' : coordinateRow,
                                                     'coordinateColumn' : coordinateColumn
                                                 }) }}
+                                                {% set maxX = areaRow* 16 + coordinateRow %}
+                                                {% set maxY = areaColumn* 16 + coordinateColumn %}
                                             {% endfor %}
                                         </ul>
                                     </li>
@@ -33,11 +37,15 @@
         {% endfor %}
     </ul>
     <script>
-        var data = {
-            'map' : {{ map|serialize|raw }},
-            'player' : {{ player|serialize|raw }}
-        };
-        var game = new Game(data);
-        game.start();
+        $(document).ready(function(){
+            var data = {
+                'map' : {{ map|serialize|raw }},
+                'player' : {{ player|serialize|raw }}
+            };
+            var game = new Game(data);
+            game.setMaxX({{ maxY }});
+            game.setMaxY({{ maxX }});
+            game.start();
+        })
     </script>
 {% endblock %}
