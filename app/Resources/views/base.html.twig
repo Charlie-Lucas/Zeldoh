@@ -17,6 +17,11 @@
         {% endblock head_style %}
     </head>
     <body>
+        {% block header %}
+            <div class="logoContainer">
+                <img class="logo" src=" {{ asset('bundles/zeldohapp/images/logo.png') }}" alt="Zeldoh">
+            </div>
+        {% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}
             {% javascripts injector="foot" %}

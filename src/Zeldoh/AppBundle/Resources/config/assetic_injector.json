@@ -6,7 +6,8 @@
       "head":
       [
         "@ZeldohAppBundle/Resources/public/js/jquery-2.1.4.min.js",
-        "@ZeldohAppBundle/Resources/public/js/bootstrap.min.js"
+        "@ZeldohAppBundle/Resources/public/js/bootstrap.min.js",
+        "@ZeldohAppBundle/Resources/public/js/map.js"
       ]
     },
     "stylesheets":
