@@ -47,7 +47,7 @@ class Map
     /**
      * Add areas
      *
-     * @param \Zeldoh\AppBundle\Entity\Map\AreaLine $areaLines
+     * @param \Zeldoh\AppBundle\Entity\Map\AreaLine $areaLine
      * @return Map
      */
     public function addAreaLine(\Zeldoh\AppBundle\Entity\Map\AreaLine $areaLine)
@@ -61,7 +61,7 @@ class Map
     /**
      * Remove areas
      *
-     * @param \Zeldoh\AppBundle\Entity\Map\AreaLine $areaLines
+     * @param \Zeldoh\AppBundle\Entity\Map\AreaLine $areaLine
      */
     public function removeAreaLine(\Zeldoh\AppBundle\Entity\Map\AreaLine $areaLine)
     {
@@ -76,5 +76,19 @@ class Map
     public function getAreaLines()
     {
         return $this->areaLines;
+    }
+    
+    /*
+     * this function returns coordinates from areas
+     */
+    public function getCoordinates(){
+        $coordinates = array();
+        
+        foreach ($this->areaLines as $areas){
+            foreach ($areas->getAreaLines() as $coordarea){
+                $coordinates[] = $coordarea;
+            }
+        }
+        return $coordinates;
     }
 }

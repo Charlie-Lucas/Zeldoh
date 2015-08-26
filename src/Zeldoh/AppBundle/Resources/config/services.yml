@@ -8,6 +8,8 @@ services:
             - { name: twig.extension }
     zeldoh.map.loader:
         class: Zeldoh\AppBundle\Service\MapLoader
+    zeldoh.monster.manager:
+        class: Zeldoh\AppBundle\Service\MonsterManager
     zeldoh.registrationListener:
         class: Zeldoh\AppBundle\EventListener\RegistrationListener
         arguments: 

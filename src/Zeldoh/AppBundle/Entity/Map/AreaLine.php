@@ -107,4 +107,18 @@ class AreaLine
     {
         return $this->map;
     }
+    
+    /*
+     * this function fetches coordinates from Area
+     */
+    public function getCoordinates(){
+        $coordinates = array();
+        
+        foreach ($this->areas as $area){
+            foreach ($area->getCoordinates() as $coordarea){
+                $coordinates[] = $coordarea;
+            }
+        }
+        return $coordinates;
+    }
 }
