@@ -1,5 +1,8 @@
 {% extends "::base.html.twig" %}
 {% block body %}
+    <div class="logoContainer">
+        <img class="logo" src="bundles/zeldohapp/images/logo.png" alt="Zeldoh">
+    </div>
     <ul class="map">
         {% for areaLine in map.areaLines %}
             <li class="areaLine">

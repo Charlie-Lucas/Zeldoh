@@ -1,5 +1,30 @@
+.logoContainer {
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+.logo {
+	width: 250px;
+}
+
+#formConnection {
+	width: 250px;
+	margin: auto;
+	margin-top: 110px;
+}
+
+#formConnection .form-group label {
+	display: none;
+}
+
+#formConnection input[type="submit"] {
+	width: 100%;
+}
+
 ul.map {
 	margin: 0px;
+	text-align: center;
 }
 
 ul.coordinates{
@@ -8,7 +33,7 @@ ul.coordinates{
 
 li.coordinate{
     display: inline-block;
-    padding: 5px;
+    padding: 18px;
     float: left;
     background-size: 100% !important;
     background-repeat: no-repeat;
