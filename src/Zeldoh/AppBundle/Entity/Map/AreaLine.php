@@ -108,6 +108,9 @@ class AreaLine
         return $this->map;
     }
     
+    /*
+     * this function fetches coordinates from Area
+     */
     public function getCoordinates(){
         $coordinates = array();
         

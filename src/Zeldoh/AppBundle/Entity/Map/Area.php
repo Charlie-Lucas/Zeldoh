@@ -137,6 +137,9 @@ class Area
         return $this->coordinateLines;
     }
     
+    /*
+     * this function fetch coordinates from CoordinateLines
+     */
     public function getCoordinates(){
         $coordinates = array();
         
