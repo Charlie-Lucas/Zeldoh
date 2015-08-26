@@ -1,5 +1,11 @@
 
 services:
+    zeldoh.ground_extension:
+        class: Zeldoh\AppBundle\Twig\GroundExtension
+        arguments:
+            - @router
+        tags:
+            - { name: twig.extension }
     zeldoh.map.loader:
         class: Zeldoh\AppBundle\Service\MapLoader
 #        arguments: [@service_id, "plain_value", %parameter%]
