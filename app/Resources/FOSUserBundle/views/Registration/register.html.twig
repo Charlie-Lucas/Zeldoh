@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<div class="background">
+    {% block header %}{% endblock %}
+        <a href="{{ path("fos_user_security_login") }}" class="btn btn-primary btnLogin">Connexion</a>
+        <div class="logoContainer">
+            <img class="logo" src=" {{ asset('bundles/zeldohapp/images/logo.png') }}" alt="Zeldoh">
+        </div>
+    <div class="container">
+			{% include "FOSUserBundle:Registration:register_content.html.twig" %}
+	</div>
+</div>
+{% endblock %}

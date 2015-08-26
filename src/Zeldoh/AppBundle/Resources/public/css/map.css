@@ -1,25 +1,48 @@
+html, body {
+	height: 100%;
+}
+
+.background {
+	background: url('../../../../../bundles/zeldohapp/images/background.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+}
+
+.btnLogin {
+	position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
 .logoContainer {
 	text-align: center;
-	margin-top: 10px;
-	margin-bottom: 15px;
+	padding-top: 35px;
+	margin-bottom: 10px;
 }
 
 .logo {
 	width: 250px;
 }
 
-#formConnection {
+#formConnection, #formRegister {
 	width: 250px;
 	margin: auto;
 	margin-top: 110px;
+	background: #FFFFFF;
+    padding: 15px;
+    border-radius: 5px;
 }
 
+#formConnection .form-group label,
 #formConnection .form-group label {
 	display: none;
 }
 
-#formConnection input[type="submit"] {
-	width: 100%;
+#formConnection input[type="submit"],
+#formRegister input[type="submit"] {
+	width: 100% !important;
 }
 
 ul.map {

@@ -10,7 +10,7 @@ use Zeldoh\AppBundle\Entity\Character\Player;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="homepage")
      * @Template()
      */
     public function indexAction()

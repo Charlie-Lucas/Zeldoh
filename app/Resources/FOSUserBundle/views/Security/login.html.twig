@@ -1,6 +1,11 @@
 {% extends "::base.html.twig" %}
 {% block body %}
 	<div class="background">
+        {% block header %}{% endblock %}
+        	<a href="{{ path("fos_user_registration_register") }}" class="btn btn-primary btnLogin">Inscription</a>
+            <div class="logoContainer">
+                <img class="logo" src=" {{ asset('bundles/zeldohapp/images/logo.png') }}" alt="Zeldoh">
+            </div>
         <div class="container">
 
 			{% trans_default_domain 'FOSUserBundle' %}
