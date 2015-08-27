@@ -16,17 +16,50 @@
 1 zone dévoilée à l'arrivée dessus
 
 -combattre des monstres
+(apparition aléatoire de monstres sur une map de 16x16, selon la zone, système de combat et level exp)
+et message de game over ou de win
+-déplacement,
+-spawn monsters
+-combat monstres
+-win XP
+-respawn si KO respawn(){ items = 0; XP = 0; nb_zone_visited = int; }
+-le corpse sur la map, save 1x (si mort), et si marcher sur la case, récupérer half XP de ce qu'il y avait et items
+ 
+
 -monter en niveau
+(gestion des stats)
+
 -gagner des items
+(fin de combat, monstre possède aléatoirement un item ou pas d'item)
+
 -trouver des items
+(déplacement, case possédant aléatoirement aucun item ou un)
+
 -utiliser des items
--mettre en pause //
--sauvegarder la progression
--trouver une clé
--combattre un boss
--gagner de l'XP
--quitter la partie //
--retrouver la partie plus tard
+(interface du héros,  catégorie d'item : items>catégories>potions>soin/soin magie/soin total,
+>catégories>boost>booster de stats/booster défense/booster attaque, etc)
+
+-mettre en pause // sortir de la map au press space par exemple, ou reprendre avec la même touche
+
+-sauvegarder la progression : save auto à chaque changement de map ? Ou uniquement 
+via interface de pause, avec bouton de sauvegarde ?
+
+-trouver une clé: sur une minimap, endroit spécifique où un monstre apparait obligatoirement
+et drop obligatoirement l'item key unique.
+
+-ouvrir une porte : 
+case sur une minimap, un mur qui ne s'en va pas tant qu'on a pas la clé (avec message), 
+si on a la clé, le mur n'est plus là (avec message)
+
+-combattre un boss : monstre qui apparait obligatoirement à un certain endroit dans la salle du boss
+système de combat, et message de game over ou de win
+
+-gagner de l'XP : gestion de l'exp dans les combats, en fonction du monstre combattu, du niveau du héros
+et du monstre.
+
+-quitter la partie // sauvegarder ou non la progression, 
+-retrouver la partie plus tard : retrouver sa sauvegarde dans son interface dashboard, et jouer
+
 
 Nous sommes sortis du cadre sur certains points : 
 Pour la map, nous n'avons pas fait un carré de 9 carrés avec le personnage au milieu;
@@ -39,10 +72,48 @@ Le genre du héros est choisi lors de la création de ce dernier, avant d'arrive
 
 
 conception : 
-php en serveur (symfony/doctrine bdd, enregistrer les données, passer les données de bdd)
+bdd : ce qu'on sauvegarde : entités : monstre, héros, item, utilisateur, map, zone, partie.
+Comment les entités communiquent entre elles : 
+-l'utilisateur crée une partie.
+-Cette partie se compose d'un morceau de map, d'un héros avec son XP et ses items.
+-Les items sont liés à la zone dans la grande map, au sac du héros, et aux monstres.
+-Les monstres sont liés aux zones dans la grande map.
+
+----------------------------------------------------------------------------
+	area		: id, area_line_id, type
+	area_line	: id, map_id
+	character	: id
+	coordinate	: id, coordinate_line_id, frounde_id
+	coordinate_line : id, area_id
+	fos_user	: id, username, email, enabled, salt, password, last_login, ...
+	ground		: id, player_id, reahable, type, locked
+	map		: id
+	monster		: id, name, life, damage
+	+player		: id, coordinate_id +id
+	power		: id, name, damage
+----------------------------------------------------------------------------
+
+L'utilisateur est identifié uniquement par un id en bdd, il faut que l'adresse mail n'existe pas 
+encore en bdd.
+une partie doit être liée à un seul utilisateurm un seul héros, une quantité d'items (redivisé par item)
+les zones sont liées à une seule et unique map chacune.
+Un héros contient son niveau 1 des attaques, stats etc. 
+Une map contient 1 à N zones.
+Une zone contient x et y coordonnées et 16x16 blocs (taille)
+Une partie n'utilise qu'une seule map.
+Une partie contient une zone, un héros, un utilisateur et 0-N items liés au héros
+les items peuvent apparaître 0 ou N fois sur une zone.
+Les items apparaissent 0 ou 1 fois sur une case.
+Les items peuvent être liés 0 ou 1 fois à un seul monstre (js).
+
+
+
+
+
+php en serveur (symfony/doctrine bdd, enregistrer les données, passer les données de bdd):
 js pour le front (se déplacer sur la map, gestion des combats, json pour communiquer avec 
 php)
-méthode agile, chacun son sprint et sa tâche
+méthode agile, chacun son sprint et sa tâche //
 user doc et architecture
 Base de données : dictionnaire des données, mld mcd
 
@@ -52,3 +123,64 @@ diagrame de séquence, de classe, scénarios d'utilisation
 développement
 symfony, FOSUserBundle, code de parsing de map, code de déplacement, code js pour le combat,
 intégration des éléments graphiques, jquery, orm doctrine.
+
+
+-------------------------------------------------------------------
+
+Documentation Utilisateur : 
+
+Zeldoh est un projet de jeu développé lors d'un TP. 
+Le gameplay est simple : trouver la clé du boss, trouver la salle du boss et le vaincre.
+Bien sûr, pour compliquer la chose, vous devrez trouver votre chemin dans un dédale impossible et rempli de monstres
+plus ou moins forts. Vous serez obligé d'en combattre certains.
+
+Vous pourrez toujours essayer de battre le boss tout de suite, mais Ganondoh est plus que robuste et vous rigolera
+au nez et vous tuera si vous arrivez sans être niveau 25 minimum (on vous conseille de monter au moins niveau 30 
+pour avoir une bonne chance de le battre sans vous y reprendre à 10 fois).
+
+Vous incarnerez Linkoh (toute référence à un jeu connu est pure et simple coïncidence), 
+Sheikoh, Zeldoh et Volgoh. Chacun d'entre eux a une spécialité: 
+-Zeldoh, personnage principal, est une magicienne. Son premier sort est une boule de feu. 
+Attention toutefois à sa vie, elle n'est pas très robuste.
+-Linkoh est un preux chevalier qui combat à une épée. Il est plutôt robuste, relativement rapide, et a une bonne défense.
+-Sheikoh le ninja sait très bien esquiver, et a une défense plutôt bonne. Il n'est pas très puissant ni très robuste en 
+dehors de cela.
+-Volgoh, le Berserk est simplement... Robuste. Il a une défense énorme, beaucoup de vie, frappe assez fort.
+Mais il ne voit pas très bien avec sa grosse armure, attention à ne pas frapper à côté. Il est aussi lent.
+
+Lorsque vous arrivez sur le site, il vous faudra d'abord créer un compte d'utilisateur (mail, pseudo, mot de passe).
+
+Vous accèderez ensuite à l'interface des partie (elle sera vide lors de votre première arrivée).
+Il suffira de cliquer sur 'nouvelle partie' pour ensuite choisir votre personnage. A partir de là, vous pouvez 
+cliquer sur 'jouer' pour accéder à la map du jeu. 
+
+Tadaaaa ! Une fois arrivé sur la map, vous pourrez avancer (au pas, on ne court pas dans un château, voyons) case
+par case. Vous rencontrerez beaucoup, beaucoup de monstres. Vous pourrez en esquiver certains avant même de commencer le combat, 
+et d'autres que vous serez obligé de tuer pour continuer. 
+
+Nous ne vous aiderons pas à trouver ni la clé, ni le boss, car même si la map est compliquée, vous avez une
+mini-map sur le côté pour vous aider à voir où vous vous situez.
+
+La clé est bien gardée, le Chevalier Noir, lieutenant de Ganondoh n'aime pas que l'on dérange son boss pour rien
+(il se fait fouetter, sinon). Il ne sera pas facile à battre. Il est niveau 15, si vous êtes niveau 5 ou moins, il vous tue en un 
+coup (et se moquera de vous, comme tous les monstres assistant au combat. Et nous aussi).
+Une fois vaincu il vous donnera la clé et ira se faire fouetter.
+Il ne vous reste plus qu'à trouver la salle de Ganondoh ! 
+
+Arrivé devant à sa porte, franchissez-la, vous aurez encore quelques pas à faire pour le trouver. 
+Vous trouverez un objet ou deux assez utile pour reprendre un peu de vie.
+Quand vous arriverez à son trône, il se lèvera, énervé d'être dérangé pour rien, vous verra et 
+vous écrasera (surtout si vous n'êtes pas au moins niveau 25), c'est lui qui commence le combat.
+On vous souhaite bon courage pour le vaincre. 
+
+Pour le système de combat, vous gagnerez de l'expérience en battant des monstres.
+Plus vous monterez de niveau, plus il sera long de monter en niveau. Mais vous taperez plus fort
+et deviendrez plus résistant.
+Vous gagnerez des attaques aussi. Vous commencez avec une attaque de base, puis vous en aurez 4 à la fin.
+Attention au K.O ! Si un monstre vous bat, ce sera, d'abord, la honte internationale, mais en plus
+vous perdrez tous vos items et votre expérience gagnée du niveau, et vous revenez au point de départ.
+Oui, c'est embêtant, de mourir, n'est-ce pas ? 
+Si vous retrouvez votre cadavre, vous pourrez récupérer vos items et la moitié de l'expérience que vous aviez.
+
+
+
