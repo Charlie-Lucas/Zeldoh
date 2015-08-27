@@ -81,7 +81,7 @@ var Player = function(data){
             this.position = position;
             this.position.addClass('player');
             this.position.append('<img></img>');
-            $('.player').find('img').attr('src', '../../bundles/zeldohapp/images/Sheik.png');
+            $('.player').find('img').attr('src', bundlesBaseDir + "zeldohapp/images/Sheik.png");
             this.allowToMove = false;
             var timeOut = setTimeout(function(){
                 self.allowToMove = true;
