@@ -45,9 +45,14 @@ html, body {
 	width: 100% !important;
 }
 
+.mapContent {
+	text-align: center;
+}
+
 ul.map {
 	margin: 0px;
 	text-align: center;
+	display: inline-block;
 }
 
 ul.coordinates{
@@ -80,6 +85,11 @@ li.area{
 
 li.showZone {
 	display: inline-block !important;
+}
+
+ul.miniMap {
+	display: inline-block;
+	margin: 0px;
 }
 
 ul.miniMap:hover {
