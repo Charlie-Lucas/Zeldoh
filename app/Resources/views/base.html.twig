@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Zeldoh{% endblock %}</title>
+        <script>var bundlesBaseDir = "{{ asset('bundles/') }}"</script>
         {% block stylesheets %}{% endblock %}
         {% block head_script %}
             {% javascripts injector="head" %}
