@@ -90,10 +90,24 @@ ul{
 	padding: 0px !important;
 }
 .player img {
-    position: absolute;
+	position: absolute;
     width: 100%;
     height: auto;
+}
+.player img.down {
+    top: -96px;
+    left: 0px;
+}
+.player img.up {
     top: 0px;
+    left: 0px;
+}
+.player img.left {
+    bottom: 0px;
+    left: 0px;
+}
+.player img.right {
+    bottom: -96px;
     left: 0px;
 }
 
