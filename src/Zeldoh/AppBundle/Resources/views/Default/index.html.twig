@@ -1,41 +1,80 @@
 {% extends "::base.html.twig" %}
 {% block body %}
-    <ul class="map">
-        {% set maxX = 0 %}
-        {% set maxY = 0 %}
-        {% for areaLine in map.areaLines %}
-            {% set areaRow = loop.index0 %}
-            <li class="areaLine">
-                <ul class="areas">
-                    {% for area in areaLine.areas %}
-                        {% set areaColumn = loop.index0 %}
-                        <li id="area_{{ areaColumn }}_{{ areaRow }}" class="area">
-                            <ul class="coordinateLines">
-                                {% for coordinateLine in area.coordinateLines %}
-                                    {% set coordinateRow = loop.index0 %}
-                                    <li class="coordinateLine">
-                                        <ul class="coordinates">
-                                            {% for coordinate in coordinateLine.coordinates %}
-                                                {% set coordinateColumn = loop.index0 %}
-                                                {{ displayGround(coordinate.ground, {
-                                                    'areaRow' : areaRow,
-                                                    'areaColumn' : areaColumn,
-                                                    'coordinateRow' : coordinateRow,
-                                                    'coordinateColumn' : coordinateColumn
-                                                }) }}
-                                                {% set maxX = areaRow* 16 + coordinateRow %}
-                                                {% set maxY = areaColumn* 16 + coordinateColumn %}
-                                            {% endfor %}
-                                        </ul>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="mapContent">
+        <ul class="map">
+            {% set maxX = 0 %}
+            {% set maxY = 0 %}
+            {% for areaLine in map.areaLines %}
+                {% set areaRow = loop.index0 %}
+                <li class="areaLine">
+                    <ul class="areas">
+                        {% for area in areaLine.areas %}
+                            {% set areaColumn = loop.index0 %}
+                            <li id="area_{{ areaColumn }}_{{ areaRow }}" data-row="{{ areaRow }}" data-column="{{areaColumn}}" class="area">
+                                <ul class="coordinateLines">
+                                    {% for coordinateLine in area.coordinateLines %}
+                                        {% set coordinateRow = loop.index0 %}
+                                        <li class="coordinateLine">
+                                            <ul class="coordinates">
+                                                {% for coordinate in coordinateLine.coordinates %}
+                                                    {% set coordinateColumn = loop.index0 %}
+                                                    {{ displayGround(coordinate.ground, {
+                                                        'areaRow' : areaRow,
+                                                        'areaColumn' : areaColumn,
+                                                        'coordinateRow' : coordinateRow,
+                                                        'coordinateColumn' : coordinateColumn
+                                                    }) }}
+                                                    {% set maxX = areaRow* 16 + coordinateRow %}
+                                                    {% set maxY = areaColumn* 16 + coordinateColumn %}
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+        <ul class="miniMap">
+            {% set maxX = 0 %}
+            {% set maxY = 0 %}
+            {% for areaLine in map.areaLines %}
+                {% set areaRow = loop.index0 %}
+                <li class="minimap-areaLine">
+                    <ul class="minimap-areas">
+                        {% for area in areaLine.areas %}
+                            {% set areaColumn = loop.index0 %}
+                            <li class="minimap-area minimap-area_{{ areaRow }}_{{areaColumn}}">
+                                <div class="dark"></div>
+                                <ul class="minimap-coordinateLines">
+                                    {% for coordinateLine in area.coordinateLines %}
+                                        {% set coordinateRow = loop.index0 %}
+                                        <li class="minimap-coordinateLine">
+                                            <ul class="minimap-coordinates">
+                                                {% for coordinate in coordinateLine.coordinates %}
+                                                    {% set coordinateColumn = loop.index0 %}
+                                                    {{ displayGround(coordinate.ground, {
+                                                        'areaRow' : areaRow,
+                                                        'areaColumn' : areaColumn,
+                                                        'coordinateRow' : coordinateRow,
+                                                        'coordinateColumn' : coordinateColumn
+                                                    }) }}
+                                                    {% set maxX = areaRow* 16 + coordinateRow %}
+                                                    {% set maxY = areaColumn* 16 + coordinateColumn %}
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
     <script>
         $(document).ready(function(){
             var data = {

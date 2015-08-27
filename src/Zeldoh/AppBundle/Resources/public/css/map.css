@@ -45,9 +45,14 @@ html, body {
 	width: 100% !important;
 }
 
+.mapContent {
+	text-align: center;
+}
+
 ul.map {
 	margin: 0px;
 	text-align: center;
+	display: inline-block;
 }
 
 ul.coordinates{
@@ -80,6 +85,53 @@ li.area{
 
 li.showZone {
 	display: inline-block !important;
+}
+
+ul.miniMap {
+	display: inline-block;
+	margin: 0px;
+}
+
+ul.miniMap:hover {
+	cursor: pointer;
+}
+
+ul.miniMap li.minimap-areaLine {
+    display: block;
+    height: 16px;
+}
+
+ul.minimap-coordinateLines {
+    display: inline;
+}
+
+ul.miniMap li.minimap-area {
+	display: inline-block;
+	position: relative;
+	float: left;
+}
+
+ul.miniMap li.minimap-area .dark {
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: #000000;
+}
+
+ul.miniMap li.minimap-area.visited .dark {
+    background: transparent;
+}
+
+ul.miniMap li.minimap-area.currentZone .dark {
+	background: #FFFFFF;
+	opacity: 0.35;
+}
+
+ul.miniMap li.coordinate {
+    padding: 0.5px;
+    min-width: 0.5px;
+    min-height: 0.5px;
 }
 
 ul{

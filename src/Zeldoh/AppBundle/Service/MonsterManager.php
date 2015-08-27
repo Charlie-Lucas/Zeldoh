@@ -8,11 +8,10 @@ use Zeldoh\AppBundle\Entity\Ground\Land;
 
 class MonsterManager {
 
-//function coordinates
-//spawnmonster
-//getMonster
-//generateMonster
-
+//une function generate monster
+//une function spawn
+//une function random : return true/false
+//if instanceof land, random(generateMOnster)
     /*
      * this function generate a monster (a boss bwahaha)
      */
@@ -45,7 +44,14 @@ class MonsterManager {
             }
 
         }
-
         return $map;
     }
+    
+    /*public function randomBool(){
+        $rand = (bool)mt_rand(0,1);
+        
+        return $rand;
+    }*/
+
 }
+

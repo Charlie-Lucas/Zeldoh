@@ -48,6 +48,11 @@ class Monster
     private $area;
 
     /**
+     * @var boolean
+     */
+    private $item;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -125,6 +130,7 @@ class Monster
     {
         return $this->damage;
     }
+
     /**
      * Constructor
      */
@@ -175,6 +181,16 @@ class Monster
     public function setArea(\Zeldoh\AppBundle\Entity\Map\Area $area = null)
     {
         $this->area = $area;
+    }
+    /**
+     * Set item
+     *
+     * @param string $item
+     * @return Monster
+     */
+    public function setItem($item)
+    {
+        $this->name = $item;
 
         return $this;
     }
@@ -187,5 +203,15 @@ class Monster
     public function getArea()
     {
         return $this->area;
+    }
+    /**
+     * Get item
+     *
+     * @return boolean
+     */
+
+    public function getItem()
+    {
+        return $this->item;
     }
 }

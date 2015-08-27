@@ -21,6 +21,7 @@ class Character
      */
     private $id;
 
+
     /**
      * Get id
      *
