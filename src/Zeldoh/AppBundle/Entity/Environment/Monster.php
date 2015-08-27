@@ -45,6 +45,12 @@ class Monster
     /**
      * @ORM\ManyToMany(targetEntity="Zeldoh\AppBundle\Entity\Ability\Power",
      */
+    
+    
+    /**
+     * @var boolean
+     */
+    private $item;
 
 
     /**
@@ -124,5 +130,28 @@ class Monster
     public function getDamage()
     {
         return $this->damage;
+    }
+    
+    /**
+     * Set item
+     *
+     * @param string $item
+     * @return Monster
+     */
+    public function setItem($item)
+    {
+        $this->name = $item;
+
+        return $this;
+    }
+
+    /**
+     * Get item
+     *
+     * @return boolean
+     */
+    public function getItem()
+    {
+        return $this->item;
     }
 }
