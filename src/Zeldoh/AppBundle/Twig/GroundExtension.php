@@ -5,7 +5,11 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Routing\Router;
 use Zeldoh\AppBundle\Entity\Ground\Door;
 use Zeldoh\AppBundle\Entity\Ground\Ground;
+use Zeldoh\AppBundle\Entity\Ground\Grass;
+use Zeldoh\AppBundle\Entity\Ground\Water;
 use Zeldoh\AppBundle\Entity\Ground\Land;
+use Zeldoh\AppBundle\Entity\Ground\Browncave;
+use Zeldoh\AppBundle\Entity\Ground\Boss;
 use Zeldoh\AppBundle\Entity\Ground\Spawn;
 use Zeldoh\AppBundle\Entity\Ground\Wall;
 
@@ -42,12 +46,24 @@ class GroundExtension extends \Twig_Extension
         }elseif($ground instanceof Land)
         {
             $template = 'ZeldohAppBundle:Ground:land.html.twig';
+        }elseif($ground instanceof Grass)
+        {
+            $template = 'ZeldohAppBundle:Ground:grass.html.twig';
         }elseif($ground instanceof Wall)
         {
             $template = 'ZeldohAppBundle:Ground:wall.html.twig';
+        }elseif($ground instanceof Water)
+        {
+            $template = 'ZeldohAppBundle:Ground:water.html.twig';
         }elseif($ground instanceof Spawn)
         {
             $template = 'ZeldohAppBundle:Ground:spawn.html.twig';
+        }elseif($ground instanceof Browncave)
+        {
+            $template = 'ZeldohAppBundle:Ground:browncave.html.twig';
+        }elseif($ground instanceof Boss)
+        {
+            $template = 'ZeldohAppBundle:Ground:boss.html.twig';
         }else{
             throw new \Exception('Use A valid GroundObject');
         }

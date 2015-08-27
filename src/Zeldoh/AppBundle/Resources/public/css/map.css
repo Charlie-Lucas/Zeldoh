@@ -166,9 +166,21 @@ ul{
 .land{
 	background: url('../../../../../bundles/zeldohapp/images/marsh.png');
 }
+.grass{
+	background: url('../../../../../bundles/zeldohapp/images/dark_grass.jpg');
+}
 .wall{
 	background: url('../../../../../bundles/zeldohapp/images/wall.png');
 }
+.water{
+	background: url('../../../../../bundles/zeldohapp/images/water.png');
+}
+.boss{
+	background: url('../../../../../bundles/zeldohapp/images/boss-final.png');
+}
+.browncave{
+	background: url('../../../../../bundles/zeldohapp/images/ss_browncave.png');
+}
 .door{
-    background: url('../../../../../bundles/zeldohapp/images/marsh.png');
+    background: url('../../../../../bundles/zeldohapp/images/door.png');
 }

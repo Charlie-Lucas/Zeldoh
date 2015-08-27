@@ -6,6 +6,11 @@ namespace Zeldoh\AppBundle\Service;
 use Zeldoh\AppBundle\Entity\Ground\Spawn;
 use Zeldoh\AppBundle\Entity\Ground\Wall;
 use Zeldoh\AppBundle\Entity\Ground\Land;
+use Zeldoh\AppBundle\Entity\Ground\Browncave;
+use Zeldoh\AppBundle\Entity\Ground\Water;
+use Zeldoh\AppBundle\Entity\Ground\Grass;
+use Zeldoh\AppBundle\Entity\Ground\Door;
+use Zeldoh\AppBundle\Entity\Ground\Boss;
 use Zeldoh\AppBundle\Entity\Map\Area;
 use Zeldoh\AppBundle\Entity\Map\AreaLine;
 use Zeldoh\AppBundle\Entity\Map\Coordinate;
@@ -82,6 +87,21 @@ class MapLoader
                 $land->setBackground('bundles/zeldohapp/images/marsh.png');
                 return $land;
                 break;
+            case "+":
+                $browncave = new Browncave();
+                $browncave->setBackground('bundles/zeldohapp/images/ss_browncave.png');
+                return $browncave;
+                break;
+            case "*":
+                $grass = new Grass();
+                $grass->setBackground('bundles/zeldohapp/images/dark_grass.jpg');
+                return $grass;
+                break;
+            case ",":
+                $water = new Water();
+                $water->setBackground('bundles/zeldohapp/images/water.jpg');
+                return $water;
+                break;
             case "X":
                 $spawn = new Spawn();
                 $spawn->setBackground('bundles/zeldohapp/images/marsh.png');
@@ -93,12 +113,16 @@ class MapLoader
 //                case "X":
 //                    echo "i est un gateau";
 //                    break;
-//                case "B":
-//                    echo "i est un gateau";
-//                    break;
-//                case "D":
-//                    echo "i est un gateau";
-//                    break;
+            case "B":
+                $boss = new Boss();
+                $boss->setBackground('bundles/zeldohapp/images/boss.png');
+                return $boss;
+                break;
+            case "D":
+                $door = new Door();
+                $door->setBackground('bundles/zeldohapp/images/door.png');
+                return $door;
+                break;
             default:
                 $wall = new Land();
                 $wall->setBackground('red');

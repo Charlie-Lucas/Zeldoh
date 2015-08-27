@@ -76,7 +76,7 @@ var Player = function(data){
         if (orientation == null) {
             orientation = 'down';
         }
-        if(position.hasClass('land') && this.allowToMove)
+        if(position.hasClass('walk') && this.allowToMove)
         {
 
             if(this.position != null)
