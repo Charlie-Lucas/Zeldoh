@@ -65,7 +65,10 @@ var Player = function(data){
     this.data = data;
     this.position = null;
     var self = this;
-    this.setPosition = function (position){
+    this.setPosition = function (position, orientation){
+        if (orientation == null) {
+            orientation = 'down';
+        }
         if(position.hasClass('land') && this.allowToMove)
         {
 
@@ -81,7 +84,8 @@ var Player = function(data){
             this.position = position;
             this.position.addClass('player');
             this.position.append('<img></img>');
-            $('.player').find('img').attr('src', bundlesBaseDir + "zeldohapp/images/Sheik.png");
+            $('.player').find('img').attr('src', bundlesBaseDir + "zeldohapp/images/perso-1.png");
+            $('.player').find('img').attr('class', orientation);
             this.allowToMove = false;
             var timeOut = setTimeout(function(){
                 self.allowToMove = true;
@@ -95,26 +99,26 @@ var Player = function(data){
     this.moveDown = function(){
         if(this.position.data('x') + 1 <= this.game.maxX) {
             var newPositionId = "coordinate_" + (this.position.data('x') + 1) + '_' + this.position.data('y');
-            this.setPosition($('#' + newPositionId));
+            this.setPosition($('#' + newPositionId), 'down');
         }
     }
     this.moveUp = function(){
         if(this.position.data('x') - 1 >= 0)
         {
             var newPositionId = "coordinate_" + (this.position.data('x') - 1) + '_'+ this.position.data('y');
-            this.setPosition($('#' + newPositionId));
+            this.setPosition($('#' + newPositionId), 'up');
         }
     }
     this.moveLeft = function(){
         if(this.position.data('y') - 1 >= 0) {
             var newPositionId = "coordinate_" + this.position.data('x') + '_' + (this.position.data('y') - 1);
-            this.setPosition($('#' + newPositionId));
+            this.setPosition($('#' + newPositionId), 'left');
         }
     }
     this.moveRight = function(){
         if(this.position.data('y') + 1 <= this.game.maxY) {
             var newPositionId = "coordinate_" + this.position.data('x') + '_' + (this.position.data('y') + 1);
-            this.setPosition($('#' + newPositionId));
+            this.setPosition($('#' + newPositionId), 'right');
         }
     }
 };
