@@ -42,9 +42,16 @@ class Area
      */
     private $coordinateLines;
 
+    /**
+     * @Type("ArrayCollection<Zeldoh\AppBundle\Entity\Environment\Monster>")
+     * @ORM\OneToMany(targetEntity="Zeldoh\AppBundle\Entity\Environment\Monster", mappedBy="area")
+     */
+    private $monsters;
+
     public function __construct()
     {
         $this->coordinateLines= new ArrayCollection();
+        $this->monsters= new ArrayCollection();
     }
 
     /**
@@ -144,10 +151,43 @@ class Area
         $coordinates = array();
         
         foreach ($this->coordinateLines as $lines){
-            foreach ($lines->getCoordinates() as $coordinates){
-                $coordinates[] = $coordinates;
+            foreach ($lines->getCoordinates() as $coordinate){
+                $coordinates[] = $coordinate;
             }
         }
         return $coordinates;
+    }
+
+    /**
+     * Add monsters
+     *
+     * @param \Zeldoh\AppBundle\Entity\Environment\Monster $monsters
+     * @return Area
+     */
+    public function addMonster(\Zeldoh\AppBundle\Entity\Environment\Monster $monsters)
+    {
+        $this->monsters[] = $monsters;
+
+        return $this;
+    }
+
+    /**
+     * Remove monsters
+     *
+     * @param \Zeldoh\AppBundle\Entity\Environment\Monster $monsters
+     */
+    public function removeMonster(\Zeldoh\AppBundle\Entity\Environment\Monster $monsters)
+    {
+        $this->monsters->removeElement($monsters);
+    }
+
+    /**
+     * Get monsters
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMonsters()
+    {
+        return $this->monsters;
     }
 }

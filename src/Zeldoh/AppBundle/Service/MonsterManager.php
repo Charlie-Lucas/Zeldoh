@@ -1,6 +1,8 @@
 <?php
 
+namespace Zeldoh\AppBundle\Service;
 use Zeldoh\AppBundle\Entity\Environment\Monster;
+use Zeldoh\AppBundle\Entity\Map\Area;
 use Zeldoh\AppBundle\Entity\Map\Map;
 use Zeldoh\AppBundle\Entity\Ground\Land;
 
@@ -19,18 +21,31 @@ class MonsterManager {
         $monster->setName('Ganon');
         $monster->setLife(100);
         $monster->setDamage(1000);
+        return $monster;
     }
 
-    public function spawnMonster(Map $map) {
-        //coordinates : if ground = land, generateMonster (random).
-        //if ground != land, do not
-        $coordinates = $map->getCoordinates();
-
-        foreach ($coordinates as $coord) {
-            if ($coord instanceof Land) {
-                $this->generateMonster();
-            }
+    public function generateMonsterForArea(Area $area)
+    {
+        $nbMonster = rand(30, 30);
+        for($i = 0; $i < $nbMonster; $i++)
+        {
+            $area->addMonster($this->generateMonster());
         }
     }
+    public function spawnMonster(Map $map)
+    {
+        //coordinates : if ground = land, generateMonster (random).
+        //if ground != land, do not
 
+        $areaLines = $map->getAreaLines();
+        foreach($areaLines as $areaLine)
+        {
+            foreach ($areaLine->getAreas() as $area) {
+                $this->generateMonsterForArea($area);
+            }
+
+        }
+
+        return $map;
+    }
 }
