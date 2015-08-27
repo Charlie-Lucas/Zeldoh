@@ -13,3 +13,4 @@
 /web/css/
 .idea
 *.DS_Store
+/nbproject/private/
