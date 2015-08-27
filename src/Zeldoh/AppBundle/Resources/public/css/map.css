@@ -62,6 +62,8 @@ li.coordinate{
     background-repeat: no-repeat;
     min-width: 36px;
     min-height: 36px;
+    overflow: hidden;
+    position: relative;
 }
 
 li{
@@ -87,10 +89,13 @@ ul{
 .player{
 	padding: 0px !important;
 }
-.player img{
-     max-width:36px;
-     max-height: 36px;
- }
+.player img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0px;
+    left: 0px;
+}
 
 .land{
 	background: url('../../../../../bundles/zeldohapp/images/marsh.png');
