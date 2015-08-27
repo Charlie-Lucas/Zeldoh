@@ -2,6 +2,7 @@
 
 use Zeldoh\AppBundle\Entity\Environment\Monster;
 use Zeldoh\AppBundle\Entity\Map\Map;
+use Zeldoh\AppBundle\Entity\Ground\Land;
 
 class MonsterManager {
 
@@ -18,20 +19,18 @@ class MonsterManager {
         $monster->setName('Ganon');
         $monster->setLife(100);
         $monster->setDamage(1000);
-        
-        return $monster;
     }
-    
-    /*
-     * this one fetch coodinates from Entity Map
-     */
-    public function fetchCoordinates(Map $map){ //coord total
-        $map->getCoordinates();
-    }
-    
-    public function spawnMonster() {
-         //coordinates : if ground = land, generateMonster (random).
+
+    public function spawnMonster(Map $map) {
+        //coordinates : if ground = land, generateMonster (random).
         //if ground != land, do not
+        $coordinates = $map->getCoordinates();
+
+        foreach ($coordinates as $coord) {
+            if ($coord instanceof Land) {
+                $this->generateMonster();
+            }
+        }
     }
 
 }
