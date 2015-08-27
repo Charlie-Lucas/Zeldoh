@@ -84,8 +84,8 @@ class Map
     public function getCoordinates(){
         $coordinates = array();
         
-        foreach ($this->areaLines as $areas){
-            foreach ($areas->getAreaLines() as $coordarea){
+        foreach ($this->areaLines as $areasLine){
+            foreach ($areasLine->getCoordinates() as $coordarea){
                 $coordinates[] = $coordarea;
             }
         }
