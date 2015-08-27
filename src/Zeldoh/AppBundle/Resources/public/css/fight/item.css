@@ -1,0 +1,29 @@
+#character_menu2 {
+    margin-top : 30px;
+    border: 2px solid #AAA;
+    border-radius: 4px;
+}
+
+#character_menu2 .close {
+    max-width: 0px;
+    width: 50px;
+     -webkit-transition: max-width 0.4s;
+    transition: max-width 0.4s;
+}
+
+#character_menu2 .open {
+    max-width: 100px;
+}
+
+.block-item {
+    width: 50px;
+    height: 50px;
+}
+
+.epee {
+    background: url("../images/epee.png") no-repeat center;
+}
+
+.armour {
+    background: url("../images/armour.png") no-repeat center;
+}
