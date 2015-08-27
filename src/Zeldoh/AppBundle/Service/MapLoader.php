@@ -6,6 +6,7 @@ namespace Zeldoh\AppBundle\Service;
 use Zeldoh\AppBundle\Entity\Ground\Spawn;
 use Zeldoh\AppBundle\Entity\Ground\Wall;
 use Zeldoh\AppBundle\Entity\Ground\Land;
+use Zeldoh\AppBundle\Entity\Ground\Road;
 use Zeldoh\AppBundle\Entity\Ground\Browncave;
 use Zeldoh\AppBundle\Entity\Ground\Water;
 use Zeldoh\AppBundle\Entity\Ground\Grass;
@@ -97,6 +98,11 @@ class MapLoader
                 $grass = new Grass();
                 $grass->setBackground('bundles/zeldohapp/images/dark_grass.jpg');
                 return $grass;
+                break;
+            case "0":
+                $road = new Road();
+                $road->setBackground('bundles/zeldohapp/images/road.jpg');
+                return $road;
                 break;
             case ",":
                 $water = new Water();

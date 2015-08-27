@@ -9,6 +9,7 @@ use Zeldoh\AppBundle\Entity\Ground\Ground;
 use Zeldoh\AppBundle\Entity\Ground\Grass;
 use Zeldoh\AppBundle\Entity\Ground\Water;
 use Zeldoh\AppBundle\Entity\Ground\Land;
+use Zeldoh\AppBundle\Entity\Ground\Road;
 use Zeldoh\AppBundle\Entity\Ground\Browncave;
 use Zeldoh\AppBundle\Entity\Ground\Boss;
 use Zeldoh\AppBundle\Entity\Ground\Spawn;
@@ -53,6 +54,9 @@ class GroundExtension extends \Twig_Extension
         }elseif($ground instanceof Grass)
         {
             $template = 'ZeldohAppBundle:Ground:grass.html.twig';
+        }elseif($ground instanceof Road)
+        {
+            $template = 'ZeldohAppBundle:Ground:road.html.twig';
         }elseif($ground instanceof Wall)
         {
             $template = 'ZeldohAppBundle:Ground:wall.html.twig';

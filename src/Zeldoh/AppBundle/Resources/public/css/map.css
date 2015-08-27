@@ -177,6 +177,9 @@ ul{
 .land{
 	background: url('../../../../../bundles/zeldohapp/images/marsh.png');
 }
+.road{
+	background: url('../../../../../bundles/zeldohapp/images/road.jpg');
+}
 .grass{
 	background: url('../../../../../bundles/zeldohapp/images/dark_grass.jpg');
 }
