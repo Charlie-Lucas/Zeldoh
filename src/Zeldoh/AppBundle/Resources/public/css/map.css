@@ -123,6 +123,11 @@ ul.miniMap li.minimap-area.visited .dark {
     background: transparent;
 }
 
+ul.miniMap li.minimap-area.currentZone .dark {
+	background: #FFFFFF;
+	opacity: 0.35;
+}
+
 ul.miniMap li.coordinate {
     padding: 0.5px;
     min-width: 0.5px;

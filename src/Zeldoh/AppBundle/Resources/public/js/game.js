@@ -54,6 +54,8 @@ var Game = function(data){
         var dataRow = area.attr('data-row');
         var dataColumn = area.attr('data-column');
 
+        $('ul.miniMap li.minimap-area').removeClass('currentZone');
+        $('ul.miniMap li.minimap-area_'+dataRow+'_'+dataColumn).addClass('currentZone');
         $('ul.miniMap li.minimap-area_'+dataRow+'_'+dataColumn).addClass('visited');
     }
     this.setMaxY = function(maxY)
