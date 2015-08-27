@@ -61,10 +61,12 @@ var Game = function(data){
 };
 var Player = function(data){
     this.game = null;
+    this.allowToMove= true;
     this.data = data;
     this.position = null;
+    var self = this;
     this.setPosition = function (position){
-        if(position.hasClass('land'))
+        if(position.hasClass('land') && this.allowToMove)
         {
 
             if(this.position != null)
@@ -73,9 +75,18 @@ var Player = function(data){
                     this.game.showCurrentZone(position);
                 }
                 this.position.removeClass('player');
+                this.position.find('img').remove();
+
             }
             this.position = position;
             this.position.addClass('player');
+            this.position.append('<img></img>');
+            $('.player').find('img').attr('src', '../../bundles/zeldohapp/images/Sheik.png');
+            this.allowToMove = false;
+            var timeOut = setTimeout(function(){
+                self.allowToMove = true;
+
+            }, 150);
         }
     }
     this.setGame = function(game){

@@ -5,12 +5,16 @@
 /app/logs/*
 !app/logs/.gitkeep
 /app/phpunit.xml
+/app/SymfonyRequirement.php
+/app/check.php
 /bin/
 /composer.phar
 /vendor/
 /web/bundles/
 /web/js/
 /web/css/
+/web/config.php
+
 .idea
 *.DS_Store
 /nbproject/private/
