@@ -170,21 +170,7 @@ ul{
     position: absolute;
     width: 100%;
     height: auto;
-}
-.monster img.down {
-    top: -96px;
-    left: 0px;
-}
-.monster img.up {
     top: 0px;
-    left: 0px;
-}
-.monster img.left {
-    bottom: 0px;
-    left: 0px;
-}
-.monster img.right {
-    bottom: -96px;
     left: 0px;
 }
 

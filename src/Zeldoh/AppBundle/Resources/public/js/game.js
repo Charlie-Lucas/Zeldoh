@@ -78,7 +78,7 @@ var Game = function(data){
                 var monsters = area.monsters;
                 var areaElemId =  "area_" + j + '_' + i;
                 var areaElem = $('#'+areaElemId);
-                var lands = areaElem.find('.land:not(.spawn)');
+                var lands = areaElem.find('.sp-monster:not(.spawn)');
                 var landsNumber = lands.length;
                 for(var k = 0 ; k < monsters.length; k++)
                 {
@@ -91,7 +91,7 @@ var Game = function(data){
     this.createMonsterForGround = function(monster, land){
         $(land).addClass('monster');
         $(land).append($('<img></img>'));
-        $(land).find('img').attr('src', bundlesBaseDir + "zeldohapp/images/perso-1.png");
+        $(land).find('img').attr('src', bundlesBaseDir + "zeldohapp/images/monster.png");
         $(land).find('img').attr('class', 'down');
     }
 };
