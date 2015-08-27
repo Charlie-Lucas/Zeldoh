@@ -43,15 +43,14 @@ class Monster
     private $damage;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Zeldoh\AppBundle\Entity\Ability\Power",
+     * @ORM\ManyToOne(targetEntity="Zeldoh\AppBundle\Entity\Map\Area", inversedBy="monsters")
      */
-    
-    
+    private $area;
+
     /**
      * @var boolean
      */
     private $item;
-
 
     /**
      * Get id
@@ -131,7 +130,58 @@ class Monster
     {
         return $this->damage;
     }
-    
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->areas = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add areas
+     *
+     * @param \Zeldoh\AppBundle\Entity\Map\Area $areas
+     * @return Monster
+     */
+    public function addArea(\Zeldoh\AppBundle\Entity\Map\Area $areas)
+    {
+        $this->areas[] = $areas;
+
+        return $this;
+    }
+
+    /**
+     * Remove areas
+     *
+     * @param \Zeldoh\AppBundle\Entity\Map\Area $areas
+     */
+    public function removeArea(\Zeldoh\AppBundle\Entity\Map\Area $areas)
+    {
+        $this->areas->removeElement($areas);
+    }
+
+    /**
+     * Get areas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAreas()
+    {
+        return $this->areas;
+    }
+
+    /**
+     * Set area
+     *
+     * @param \Zeldoh\AppBundle\Entity\Map\Area $area
+     * @return Monster
+     */
+    public function setArea(\Zeldoh\AppBundle\Entity\Map\Area $area = null)
+    {
+        $this->area = $area;
+    }
     /**
      * Set item
      *
@@ -146,10 +196,20 @@ class Monster
     }
 
     /**
+     * Get area
+     *
+     * @return \Zeldoh\AppBundle\Entity\Map\Area 
+     */
+    public function getArea()
+    {
+        return $this->area;
+    }
+    /**
      * Get item
      *
      * @return boolean
      */
+
     public function getItem()
     {
         return $this->item;

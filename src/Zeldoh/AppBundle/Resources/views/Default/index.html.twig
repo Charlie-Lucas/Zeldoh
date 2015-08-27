@@ -10,7 +10,7 @@
                     <ul class="areas">
                         {% for area in areaLine.areas %}
                             {% set areaColumn = loop.index0 %}
-                            <li data-row="{{ areaRow }}" data-column="{{areaColumn}}" class="area">
+                            <li id="area_{{ areaColumn }}_{{ areaRow }}" data-row="{{ areaRow }}" data-column="{{areaColumn}}" class="area">
                                 <ul class="coordinateLines">
                                     {% for coordinateLine in area.coordinateLines %}
                                         {% set coordinateRow = loop.index0 %}

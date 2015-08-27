@@ -13,9 +13,20 @@ use Doctrine\ORM\Mapping as ORM;
 class Player extends Character
 {
     /**
+     * @ORM\Column(name="image", type="string")
+     *
+     */
+    private $image;
+
+    /**
      * @ORM\OneToOne(targetEntity="Zeldoh\AppBundle\Entity\Map\Coordinate")
      */
     private $coordinate;
+
+    public function __construct()
+    {
+        $this->image = "zeldohapp/images/perso-4.png";
+    }
 
     /**
      * Set coordinate
@@ -38,5 +49,28 @@ class Player extends Character
     public function getCoordinate()
     {
         return $this->coordinate;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Player
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

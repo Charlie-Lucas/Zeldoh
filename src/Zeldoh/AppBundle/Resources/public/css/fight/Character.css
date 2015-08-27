@@ -1,0 +1,153 @@
+/* *************   Classe images   *************************  */
+
+.logo-zelda {
+    background: url("../images/zelda.png") no-repeat ;
+    height: 250px;
+    width: 152px;
+}
+
+.logo-link {
+    background: url("../images/link.png") no-repeat ;
+    height: 289px;
+    width: 153px;
+}
+
+.font-fight {
+    background: url("../images/fond-combat.png") no-repeat center 130px;
+}
+
+.level-character {
+    background: url("../images/level-character.png") no-repeat;
+    width: 122px;
+    height: 71px;
+}
+
+#character_menu #weapon {
+    background: url("../images/epee.png") no-repeat;
+    width: 44px;
+    height: 45px;
+    margin: 5px auto;
+}
+
+#character_menu #item {
+    background: url("../images/potion.png") no-repeat;
+    width: 28px;
+    height: 58px;
+    margin: 5px auto;
+}
+
+#character_menu #infos {
+    background: url("../images/infos.png") no-repeat;
+    width: 30px;
+    height: 42px;
+    margin: 5px auto;
+}
+
+/* ***************  Classe css   *************** */
+
+#character_level {
+    position: absolute;
+    top: 10px;
+    left: 45px;
+    padding: 9px 0 0 55px;
+}
+
+#character_level p {
+    font-size: 20px;
+    font-family : 'Copperplate Gothic Bold', Trebuchet MS;
+    color: #d0ae54;
+    width: 20px;
+    text-align: center;
+}
+
+#character_infos {
+    margin-top: 30px;
+    padding-left: 190px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#character_health {
+    background: url("../images/heart.png") no-repeat;
+    height: 43px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+#character_health p {
+    color: #E41313;
+    padding-left: 60px;
+}
+
+#character_exp {
+    background: url("../images/Exp.png") no-repeat bottom left;
+    height: 43px;
+    width: 300px;
+}
+
+#character_exp p {
+    color: #2B548C;
+    padding-left: 60px;
+}
+
+.number_infos {
+    font-family: Comic Sans Ms;
+    font-size: 19px;
+    font-style: italic;
+    margin: 0;
+}
+
+.bar {
+    height: 13px;
+    width: 130px;
+    border-radius: 4px;
+    border: 1px solid #828282;
+    margin: 0 0 0 60px;
+    position: relative;
+}
+
+.bar .content_bar {
+    background-color: #E41313;
+    height: 100%;
+    -webkit-transition: width 0.4s;
+    transition: width 0.4s;
+}
+
+#character_exp .bar .content_bar {
+    background-color: #2B548C;
+}
+
+#character_menu {
+    height: 160px;
+    width: 52px;
+    border: 2px solid #AAA;
+    display: inline-block;
+    border-radius: 4px;
+    margin-top: 30px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#character_menu2 {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.btn_menu_character {
+    cursor: pointer;
+    opacity: 0.7;
+    -webkit-transition: opacity 0.4s;
+    transition: opacity 0.4s;
+}
+
+.btn_menu_character:hover {
+    opacity: 1;
+}
+
+.stop {
+    opacity: 0.5;
+}
+
+.ready-fight {
+    opacity: 1 !important;
+}
