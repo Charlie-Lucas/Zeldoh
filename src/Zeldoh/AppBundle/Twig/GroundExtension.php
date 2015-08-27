@@ -4,6 +4,7 @@ namespace Zeldoh\AppBundle\Twig;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Routing\Router;
 use Zeldoh\AppBundle\Entity\Ground\Door;
+use Zeldoh\AppBundle\Entity\Ground\Key;
 use Zeldoh\AppBundle\Entity\Ground\Ground;
 use Zeldoh\AppBundle\Entity\Ground\Grass;
 use Zeldoh\AppBundle\Entity\Ground\Water;
@@ -43,6 +44,9 @@ class GroundExtension extends \Twig_Extension
         if($ground instanceof Door)
         {
             $template = 'ZeldohAppBundle:Ground:door.html.twig';
+        }elseif($ground instanceof Key)
+        {
+            $template = 'ZeldohAppBundle:Ground:key.html.twig';
         }elseif($ground instanceof Land)
         {
             $template = 'ZeldohAppBundle:Ground:land.html.twig';

@@ -10,6 +10,7 @@ use Zeldoh\AppBundle\Entity\Ground\Browncave;
 use Zeldoh\AppBundle\Entity\Ground\Water;
 use Zeldoh\AppBundle\Entity\Ground\Grass;
 use Zeldoh\AppBundle\Entity\Ground\Door;
+use Zeldoh\AppBundle\Entity\Ground\Key;
 use Zeldoh\AppBundle\Entity\Ground\Boss;
 use Zeldoh\AppBundle\Entity\Map\Area;
 use Zeldoh\AppBundle\Entity\Map\AreaLine;
@@ -122,6 +123,11 @@ class MapLoader
                 $door = new Door();
                 $door->setBackground('bundles/zeldohapp/images/door.png');
                 return $door;
+                break;
+            case "K":
+                $key = new Key();
+                $key->setBackground('bundles/zeldohapp/images/key.png');
+                return $key;
                 break;
             default:
                 $wall = new Land();
