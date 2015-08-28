@@ -21,7 +21,9 @@ class PlayerType extends AbstractType
                     "zeldohapp/images/perso-2.png" => 'Blanc',
                     "zeldohapp/images/perso-3.png" => 'Bleu',
                     "zeldohapp/images/perso-4.png" => 'Rouge'
-                )
+                ),
+                "expanded" => true,
+                "multiple" => false
             ))
         ;
     }
