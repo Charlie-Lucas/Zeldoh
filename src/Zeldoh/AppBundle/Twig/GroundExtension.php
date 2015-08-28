@@ -7,6 +7,7 @@ use Zeldoh\AppBundle\Entity\Ground\Door;
 use Zeldoh\AppBundle\Entity\Ground\Key;
 use Zeldoh\AppBundle\Entity\Ground\Ground;
 use Zeldoh\AppBundle\Entity\Ground\Grass;
+use Zeldoh\AppBundle\Entity\Ground\Wood;
 use Zeldoh\AppBundle\Entity\Ground\Water;
 use Zeldoh\AppBundle\Entity\Ground\Land;
 use Zeldoh\AppBundle\Entity\Ground\Road;
@@ -60,6 +61,9 @@ class GroundExtension extends \Twig_Extension
         }elseif($ground instanceof Wall)
         {
             $template = 'ZeldohAppBundle:Ground:wall.html.twig';
+        }elseif($ground instanceof Wood)
+        {
+            $template = 'ZeldohAppBundle:Ground:wood.html.twig';
         }elseif($ground instanceof Water)
         {
             $template = 'ZeldohAppBundle:Ground:water.html.twig';

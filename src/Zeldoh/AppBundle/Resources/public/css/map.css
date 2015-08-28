@@ -124,8 +124,8 @@ ul.miniMap li.minimap-area.visited .dark {
 }
 
 ul.miniMap li.minimap-area.currentZone .dark {
-	background: #FFFFFF;
-	opacity: 0.35;
+	background: rgba(255, 255, 255, 0.2);
+	border: 2px solid red;
 }
 
 ul.miniMap li.coordinate {
@@ -188,6 +188,9 @@ ul{
 }
 .water{
 	background: url('../../../../../bundles/zeldohapp/images/water.png');
+}
+.wood{
+	background: url('../../../../../bundles/zeldohapp/images/wood.jpg');
 }
 .boss{
 	background: url('../../../../../bundles/zeldohapp/images/boss-final.png');

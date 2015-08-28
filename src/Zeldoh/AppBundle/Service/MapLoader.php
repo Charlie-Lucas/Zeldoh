@@ -7,6 +7,7 @@ use Zeldoh\AppBundle\Entity\Ground\Spawn;
 use Zeldoh\AppBundle\Entity\Ground\Wall;
 use Zeldoh\AppBundle\Entity\Ground\Land;
 use Zeldoh\AppBundle\Entity\Ground\Road;
+use Zeldoh\AppBundle\Entity\Ground\Wood;
 use Zeldoh\AppBundle\Entity\Ground\Browncave;
 use Zeldoh\AppBundle\Entity\Ground\Water;
 use Zeldoh\AppBundle\Entity\Ground\Grass;
@@ -103,6 +104,11 @@ class MapLoader
                 $road = new Road();
                 $road->setBackground('bundles/zeldohapp/images/road.jpg');
                 return $road;
+                break;
+            case "w":
+                $wood = new Wood();
+                $wood->setBackground('bundles/zeldohapp/images/wood.jpg');
+                return $wood;
                 break;
             case ",":
                 $water = new Water();
