@@ -7,11 +7,30 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Player
  *
- * @ORM\Table()
  * @ORM\Entity
+ * @ORM\Table()
  */
-class Player extends Character
+class Player
 {
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
     /**
      * @ORM\Column(name="image", type="string")
      *
@@ -72,5 +91,28 @@ class Player extends Character
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set player
+     *
+     * @param \Zeldoh\AppBundle\Entity\Users\User $player
+     * @return Player
+     */
+    public function setUser(\Zeldoh\AppBundle\Entity\Users\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get player
+     *
+     * @return \Zeldoh\AppBundle\Entity\Users\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
