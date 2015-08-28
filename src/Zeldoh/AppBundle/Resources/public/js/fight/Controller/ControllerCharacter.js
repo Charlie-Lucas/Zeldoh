@@ -17,12 +17,12 @@ function ControllerCharacter()
            
 }
 
-// Permet de rattacher le controller principale
+// Permet de rattacher le controller principal
 ControllerCharacter.prototype.attach = function(observer){
     this.observers.push(observer);
 };
 
-// Permet de notifier le controller principale
+// Permet de notifier le controller principal
 ControllerCharacter.prototype.notify = function(action, action2, data){
     for (var key in this.observers)
     {

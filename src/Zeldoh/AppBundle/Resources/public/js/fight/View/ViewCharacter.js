@@ -17,6 +17,7 @@ ViewCharacter.prototype.notify = function(action, action2, data){
     }
 };
 
+//function dynamique o//
 ViewCharacter.prototype.update = function(action){
     return this.self[action]();
 };
