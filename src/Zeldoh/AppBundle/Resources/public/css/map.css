@@ -147,18 +147,22 @@ ul{
     height: auto;
 }
 .player img.down {
+	bottom: initial;
     top: -96px;
     left: 0px;
 }
 .player img.up {
+	bottom: initial;
     top: 0px;
     left: 0px;
 }
 .player img.left {
+	top: initial;
     bottom: 0px;
     left: 0px;
 }
 .player img.right {
+    top: initial;
     bottom: -96px;
     left: 0px;
 }
