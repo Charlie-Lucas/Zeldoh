@@ -66,7 +66,7 @@ Character.prototype.display = function(){
       // Quand la page html est récupéré on ajoute les events.
     }).always(function() {
         Obj.view = template.clone();
-        // On alerte la vue que le templatre est chargé.
+        // On alerte la vue que le template est chargé.
         Obj.notify('templateCharacter');
     }.bind(Obj));
 };
@@ -84,3 +84,5 @@ Character.prototype.addItem = function(array, controller){
     });
     return tab;
 };
+
+//dans character une function UseItem ? 

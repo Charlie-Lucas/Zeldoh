@@ -50,8 +50,10 @@ ControllerGame.prototype.notify = function(action, action2, data){
 // Cette fonction permet d'ajouter les personnages au combat du jeux.
 ControllerGame.prototype.startGame = function(){
      this.Character.push(this.game.addCharacter());
+     this.Monster.push(this.game.addMonster());
+     //addMonster ici, créer un adversaire, push
 };
-
+//init Monster 
 ControllerGame.prototype.initCharacter = function(){
     var character = new Character();
     var viewCharacter = new ViewCharacter(character);
@@ -92,4 +94,61 @@ ControllerGame.prototype.initCharacter = function(){
     character.display();
     this.Characters.push(character);
     this.views.push(viewCharacter);
+};
+
+
+//init monster
+ControllerGame.prototype.initMonster = function(){
+    var monster = new Monster();
+    var viewMonster = new ViewMonster(monster);
+    viewMonster.attach(this.observers[0]);
+    monster.attach(viewMonster);
+    monster.initCharacter({
+        name : "Ganon",
+        health : {now : 500, max : 500},
+        weapons : [{
+                type : "epee",
+                action : [
+                    {
+                        effect : "-100",
+                        element : "health",
+                        character : 1,
+                        numberTurn : 0
+                    }
+                ]
+                
+        }, {
+                type : "armour",
+                action : [
+                    {
+                        effect : "+100",
+                        element : "Armour",
+                        character : 2,
+                        numberTurn : 0
+                    }
+                ]
+        },{
+                type : "sortilege",
+                action : [
+                    {
+                        effect : "+200",
+                        element : "Health",
+                        character : 2,
+                        numberTurn : 0
+                    }
+                ]
+        }
+],
+    
+        level : 30,
+        strength : 400,
+        agility : 90,
+        armor : 90,
+        img : "Ganon",
+        type : "Ganon"
+    });
+    monster.display();//noneed
+    
+    this.Monsters.push(monster);
+    this.views.push(viewMonster);
 };

@@ -29,6 +29,7 @@ ViewGame.prototype.templateGame = function(){
     this.display();
     // On charge les joueurs.
     this.notify("ControllerGame", "loadCharacter");
+    //notify monster
 };
 
 // Permet de changer le message de la zone de combat

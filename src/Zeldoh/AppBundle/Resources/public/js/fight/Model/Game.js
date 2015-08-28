@@ -1,6 +1,7 @@
 function Game(){
     this.message = "";            // Le message du jeu
     this.characters = [];             // Array des joueurs
+    this.monsters = [];         //array de monstres
     this.img = "";
     this.view = "";
     this.observers = [];
@@ -57,6 +58,23 @@ Game.prototype.addCharacter = function(json){
 //        console.log("Impossible de créer un character. Aucune information valide n'a été passées en paramètre.");
         return this.notify("initCharacter");
     }
+};
+
+//on recupere id du monstre au moins
+Game.prototype.addMonster = function(json){
+    if(typeof json.monster !=="undefined" && typeof json.strength !== "undefined"){
+        //on récupère l'id du monstre en bdd (monstre différent), et les stats
+        //on appelle une func calculateStats() qui va calculer la force et le lvl du monstre en fonction du lvl du chara
+    }
+    else if (typeof json.idMonster !== "undefined"){
+        // On récupère les states du monstre associé.
+    }
+    else {
+        // Une erreur est survenu
+//        console.log("Impossible de créer un character. Aucune information valide n'a été passées en paramètre.");
+        return this.notify("initMonster");
+    }
+    
 };
 
 //Game.prototype.initCharacter1 = function(){
