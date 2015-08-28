@@ -18,7 +18,7 @@ class DefaultController extends Controller
         $map = $this->get('zeldoh.map.loader')->import();
         return array(
             'map' => $this->get('zeldoh.monster.manager')->spawnMonster($map),
-            'player' => new Player()
+            'player' => $this->getUser()->getPlayer()
         );
     }
 }

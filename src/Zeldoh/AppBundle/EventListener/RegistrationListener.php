@@ -17,21 +17,26 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
+use Zeldoh\AppBundle\Entity\Character\Player;
 
 class RegistrationListener implements EventSubscriberInterface
 {
 
     private $router;
+    private $em;
 
-    public function __construct($router)
+    public function __construct($router, $em)
     {
         $this->router = $router;
+        $this->em = $em;
     }
 
     public static function getSubscribedEvents()
     {
         return array(
             FOSUserEvents::REGISTRATION_SUCCESS => 'redirectAfterRegistration',
+            FOSUserEvents::REGISTRATION_COMPLETED => 'createAPlayer'
         );
     }
 
@@ -40,5 +45,13 @@ class RegistrationListener implements EventSubscriberInterface
         $url = $this->router->generate('homepage');
         $response = new RedirectResponse($url);
         $event->setResponse($response);
+    }
+    public function createAPlayer(FilterUserResponseEvent $event)
+    {
+        $user = $event->getUser();
+        $player = new Player();
+        //$this->em->persist($player);
+        $user->setPlayer($player);
+        $this->em->flush();
     }
 }
