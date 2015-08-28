@@ -10,10 +10,17 @@ services:
         class: Zeldoh\AppBundle\Service\MapLoader
     zeldoh.monster.manager:
         class: Zeldoh\AppBundle\Service\MonsterManager
+    zeldoh_profile:
+        class: Zeldoh\AppBundle\Form\User\ProfileFormType
+        arguments:
+            - %fos_user.model.user.class%
+        tags:
+            - { name: form.type, alias: "zeldoh_profile" }
     zeldoh.registrationListener:
         class: Zeldoh\AppBundle\EventListener\RegistrationListener
         arguments: 
             - "@router"
+            - "@doctrine.orm.entity_manager"
         tags: 
             - { name: kernel.event_subscriber }
 #        arguments: [@service_id, "plain_value", %parameter%]
