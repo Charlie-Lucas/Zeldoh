@@ -1,5 +1,6 @@
 {% extends "::base.html.twig" %}
 {% block body %}
+    <a href="{{ path("fos_user_security_logout") }}" class="btn btn-danger btnLogout">Deconnexion</a>
     <div class="mapContent">
         <ul class="map">
             {% set maxX = 0 %}

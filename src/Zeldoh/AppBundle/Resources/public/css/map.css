@@ -10,10 +10,10 @@ html, body {
 	height: 100%;
 }
 
-.btnLogin {
+.btnLogin, .btnLogout {
 	position: absolute;
     right: 20px;
-    top: 20px;
+    top: 35px;
 }
 
 .logoContainer {
@@ -43,6 +43,52 @@ html, body {
 #formConnection input[type="submit"],
 #formRegister input[type="submit"] {
 	width: 100% !important;
+}
+
+.fos_user_user_show {
+	position: absolute;
+    top: 35px;
+    right: 20px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 10px;
+    width: 160px;
+}
+
+.fos_user_user_show .btnLogout {
+	position: initial;
+	width: 100%;
+	top: inherit;
+	right: inherit;
+}
+
+.listGame {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.listGame .table {
+	margin-top: 50px;
+}
+
+.listGame .table th {
+	vertical-align: middle;
+	text-align: center;
+	font-size: 25px;
+}
+
+.listGame .table td {
+	vertical-align: middle;
+	font-size: 30px;
+}
+
+.listGame .table td.stats {
+	text-align: left;
+	font-size: 15px;
+}
+
+.listGame .table img {
+	max-height: 120px;
 }
 
 .mapContent {
